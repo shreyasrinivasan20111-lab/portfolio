@@ -17,7 +17,13 @@
   --sans: "Outfit", system-ui, -apple-system, sans-serif;
 
   --pad: clamp(1rem, 3.25vw, 3.25rem);
-  --r:   18px;
+
+  /* radius scale — every panel, frame and card curves; nothing sits sharp.
+     cqw-based so the curve grows with the artboard, exactly like the
+     borders do; the px bounds keep it sane outside a container.
+     --r for panels/cards, --r-sm for frames nested inside them. */
+  --r-sm: clamp(10px, 1.3cqw,  24px);
+  --r:    clamp(14px, 2cqw,    34px);
 
   --ease:   cubic-bezier(.22, .9, .28, 1);
   --spring: cubic-bezier(.28, 1.5, .45, 1);
@@ -116,11 +122,14 @@ img { max-width: 100%; display: block; }
 }
 .name-line { display: block; }
 
+/* every drawn shape joins and ends round, never mitred to a point */
+svg { stroke-linejoin: round; stroke-linecap: round; }
+
 /* picture frame */
 .pic {
   position: absolute; left: 72.7%; top: 5.2%; width: 22.2%; height: 57%;
   border: clamp(4px, .55vw, 9px) solid var(--sage);
-  border-radius: 4px;
+  border-radius: var(--r-sm);
   display: grid; place-content: center; gap: .4em;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
@@ -432,7 +441,7 @@ body.striped {
   position: absolute; top: 50%; left: var(--lx, 50%);
   width: 56%; aspect-ratio: 1045 / 815;
   display: grid; place-items: center;
-  background: var(--peach); border-radius: 6px;
+  background: var(--peach); border-radius: var(--r);
   box-shadow: var(--shadow-soft);
   transform: translate(-50%, -50%) scale(var(--sc, 1));
   opacity: var(--op, 1);
@@ -458,7 +467,7 @@ body.striped {
 
 .slide::after {
   content: ""; position: absolute; inset: 6.5% 5.5%;
-  border: 4px dashed var(--brown); border-radius: 4px;
+  border: 4px dashed var(--brown); border-radius: var(--r-sm);
   opacity: .85; pointer-events: none;
 }
 .slide img { width: 100%; height: 100%; object-fit: cover; }
@@ -536,13 +545,13 @@ body.khaki-page .brand-dot { color: var(--sage); }
 /* ── left text panel: sage block with an inset peach rule ── */
 .m-text {
   position: absolute; left: 2.25%; top: 3.2%; width: 54.8%; height: 89.8%;
-  background: var(--sage); border-radius: 6px;
+  background: var(--sage); border-radius: var(--r);
   box-shadow: var(--shadow-soft);
 }
 .m-text::after {
   content: ""; position: absolute; inset: 4%;
   border: clamp(4px, .85cqw, 13px) solid var(--peach);
-  border-radius: 4px; pointer-events: none;
+  border-radius: var(--r-sm); pointer-events: none;
 }
 .m-text-body {
   position: absolute; inset: 10%;
@@ -579,6 +588,7 @@ body.khaki-page .brand-dot { color: var(--sage); }
 .m-slot {
   position: absolute;
   background: var(--khaki);
+  border-radius: var(--r-sm);
   display: grid; place-items: center;
   overflow: hidden;
   box-shadow: var(--shadow-soft);
@@ -597,7 +607,7 @@ body.khaki-page .brand-dot { color: var(--sage); }
 .m-slot-1, .m-slot-2 {
   left: 59.7%; width: 20.1%; height: 23.3%;
   border: clamp(5px, 1cqw, 15px) solid var(--sage);
-  border-radius: 5px;
+  border-radius: var(--r-sm);
 }
 .m-slot-1 { top: 36.1%; }
 .m-slot-2 { top: 67.3%; }
@@ -606,7 +616,7 @@ body.khaki-page .brand-dot { color: var(--sage); }
 .m-slot-3 {
   left: 82.5%; top: 33.3%; width: 15%; height: 60.5%;
   border: clamp(5px, 1cqw, 15px) solid var(--peach);
-  border-radius: 5px;
+  border-radius: var(--r-sm);
 }
 .m-slot-3 figcaption { writing-mode: vertical-rl; text-orientation: upright; letter-spacing: .04em; }
 
@@ -661,7 +671,7 @@ body.sage-page .links a.active { color: var(--cream); }
 .d4 { left: 0;   top: 92.8%; width: 100%; }
 
 /* khaki mats */
-.s-mat { position: absolute; background: var(--khaki); border-radius: 10px; }
+.s-mat { position: absolute; background: var(--khaki); border-radius: var(--r-sm); }
 .mat-b, .mat-c, .mat-d { box-shadow: var(--shadow-soft); }
 
 /* mat A is stepped — two rects sharing ONE drop-shadow so the
@@ -689,7 +699,7 @@ body.sage-page .links a.active { color: var(--cream); }
 /* cream panels */
 .s-panel {
   position: absolute;
-  background: var(--cream); border-radius: 8px;
+  background: var(--cream); border-radius: var(--r-sm);
   box-shadow: 0 10px 18px -10px rgba(70, 70, 52, .3);
   overflow: hidden;
   transition: transform .4s var(--spring), box-shadow .4s var(--ease);
@@ -889,6 +899,7 @@ body.pale-sage-page .links a.active { color: var(--trophy); }
   position: absolute; left: 6%; top: 29.7%; width: 52.25%; height: 33.3%;
   background: var(--sage);
   border: clamp(4px, .8cqw, 13px) solid var(--olive-dark);
+  border-radius: var(--r);
   display: grid; align-items: center;
   padding: 3% 6%;
 }
@@ -994,14 +1005,14 @@ body.pale-sage-page .links a.active { color: var(--trophy); }
   position: relative; aspect-ratio: 1045 / 815;
   display: grid; place-items: center; cursor: pointer;
   padding: 0; border: 0;
-  background: var(--peach); border-radius: 6px;
+  background: var(--peach); border-radius: var(--r);
   box-shadow: var(--shadow-soft);
   overflow: hidden;
   transition: transform .35s var(--spring), box-shadow .35s var(--ease);
 }
 .g-item::after {
   content: ""; position: absolute; inset: 6.5% 5.5%;
-  border: 3px dashed var(--brown); border-radius: 4px;
+  border: 3px dashed var(--brown); border-radius: var(--r-sm);
   opacity: .85; pointer-events: none;
 }
 .g-item:hover, .g-item:focus-visible { transform: translateY(-6px); box-shadow: var(--shadow-lift); }
@@ -1033,7 +1044,7 @@ body.grid-open .dots { visibility: hidden; }
 .aw-card {
   position: absolute; width: 20%; height: 29%;
   border: clamp(3px, .42cqw, 7px) solid var(--peach);
-  border-radius: 3px;
+  border-radius: var(--r-sm);
   transition: transform .4s var(--spring), box-shadow .4s var(--ease),
               background-color .4s var(--ease);
 }
@@ -1056,7 +1067,7 @@ body.grid-open .dots { visibility: hidden; }
 .aw-tag {
   position: absolute; left: 11%; top: 13%; width: 68%; height: 19%;
   border: clamp(3px, .4cqw, 6px) solid var(--peach);
-  border-radius: 12px;
+  border-radius: var(--r-sm);
   display: grid; place-items: center;
   font-family: var(--hand); font-weight: 700;
   font-size: clamp(.7rem, 1.9cqw, 1.5rem); line-height: 1.05;
