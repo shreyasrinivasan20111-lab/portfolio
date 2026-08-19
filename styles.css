@@ -386,6 +386,21 @@ body.striped {
     var(--cream);
 }
 
+/* light pink sibling for the awards page — same stripe geometry, peach
+   and rose in place of khaki. Pitched lower than the khaki version on
+   purpose: khaki shifts only in value against cream and reads as
+   texture, while pink also shifts hue, so an equal step draws far more
+   attention. These alphas match the gallery's *apparent* weight, not
+   its numbers. */
+body.striped-rose {
+  background:
+    repeating-linear-gradient(90deg,
+      transparent 0 3.1%, rgba(216, 169, 143, .18) 3.1% 5.4%),
+    repeating-linear-gradient(90deg,
+      transparent 0 7.9%, rgba(187, 133, 136, .08) 7.9% 9.3%),
+    var(--cream);
+}
+
 .gallery { padding: 0 var(--pad) clamp(2rem, 6vw, 4rem); }
 
 /* the khaki stage: main panel + a tab underneath for the caption */
@@ -1118,6 +1133,8 @@ body.grid-open .dots { visibility: hidden; }
 /* ── the eight cards, ringed around the title ── */
 .aw-card {
   position: absolute; width: 20%; height: 29%;
+  /* opaque, so the striped ground stops at the card edge */
+  background: var(--cream);
   border: clamp(3px, .42cqw, 7px) solid var(--peach);
   border-radius: var(--r-sm);
   transition: transform .4s var(--spring), box-shadow .4s var(--ease),
@@ -1125,7 +1142,7 @@ body.grid-open .dots { visibility: hidden; }
 }
 .aw-card:hover {
   transform: translateY(-7px);
-  background: rgba(216, 169, 143, .12);
+  background: color-mix(in srgb, var(--peach) 14%, var(--cream));
   box-shadow: var(--shadow-soft);
 }
 
