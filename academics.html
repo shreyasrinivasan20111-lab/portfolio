@@ -11,7 +11,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23A3A390'/></svg>">
 <noscript><style>.fly{opacity:1!important;transform:none!important}</style></noscript>
 </head>
-<body data-page="academics" class="pale-sage-page">
+<body data-page="academics" class="academics-page">
 
 <header class="topbar">
   <a class="brand" href="index.html">
@@ -26,101 +26,82 @@
   </nav>
 </header>
 
-<main class="academics">
-  <div class="ac-canvas">
+<main class="ac">
 
+  <header class="ac-head">
+    <svg class="ac-mark" viewBox="0 0 200 310" aria-hidden="true">
+      <path class="stem" d="M26 8 C 58 58, 92 106, 116 154 C 138 198, 156 248, 172 296"/>
+      <g class="leaves">
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(47 40)   rotate(114)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(50 45)   rotate(4)   scale(.92)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(67 73)   rotate(116) scale(.95)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(70 78)   rotate(6)   scale(.88)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(85 109)  rotate(118) scale(.89)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(88 114)  rotate(8)   scale(.83)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(101 143) rotate(120) scale(.82)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(104 148) rotate(10)  scale(.76)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(117 181) rotate(122) scale(.74)"/>
+        <path d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z" transform="translate(120 186) rotate(12)  scale(.68)"/>
+      </g>
+    </svg>
+
+    <p class="ac-eyebrow">Academic record</p>
     <h1 class="ac-title fly-name" style="--i:1">Academics</h1>
+    <p class="ac-lede ph">A short line or two on what you study, where your focus sits,
+      and what you are working towards. Two sentences is plenty.</p>
+  </header>
 
-    <!-- text panel -->
-    <section class="ac-panel">
-      <div class="ac-body">
-        <p class="ac-ph">text</p>
-        <span class="ac-rule"></span>
-      </div>
-    </section>
+  <!-- ── education ── -->
+  <section class="ac-section">
+    <h2>Education</h2>
+    <ol class="ac-timeline">
+      <li class="ac-entry">
+        <p class="ac-when">Year &ndash; Year</p>
+        <h3 class="ph">School or programme name</h3>
+        <p class="ac-where ph">Focus area or track</p>
+        <p class="ac-note ph">One or two lines on what this covered &mdash; the subjects
+          you concentrated on, and anything that set the programme apart.</p>
+      </li>
+      <li class="ac-entry">
+        <p class="ac-when">Year &ndash; Year</p>
+        <h3 class="ph">Earlier school or programme</h3>
+        <p class="ac-where ph">Focus area or track</p>
+        <p class="ac-note ph">Same again &mdash; keep it to the detail that a reader
+          could not guess from the name alone.</p>
+      </li>
+    </ol>
+  </section>
 
-    <!-- trophy -->
-    <svg class="ac-trophy" viewBox="0 0 400 470" aria-hidden="true">
-      <g class="tr">
-        <!-- handles: a ring each, so the opening is a true elongated oval -->
-        <path class="tr-ring" fill-rule="evenodd" transform="rotate(-13 64 120)"
-              d="M10 120 a54 78 0 1 0 108 0 a54 78 0 1 0 -108 0 Z
-                 M34 120 a30 54 0 1 0 60 0 a30 54 0 1 0 -60 0 Z"/>
-        <path class="tr-ring" fill-rule="evenodd" transform="rotate(13 336 120)"
-              d="M282 120 a54 78 0 1 0 108 0 a54 78 0 1 0 -108 0 Z
-                 M306 120 a30 54 0 1 0 60 0 a30 54 0 1 0 -60 0 Z"/>
-        <path class="tr-fill" d="M94 44 C 96 132, 128 214, 200 238 C 272 214, 304 132, 306 44 Z"/>
-        <ellipse class="tr-fill" cx="200" cy="44" rx="106" ry="24"/>
-        <ellipse class="tr-rim"  cx="200" cy="44" rx="88"  ry="17"/>
-        <path class="tr-fill" d="M 184 236 Q 176 236 175.5 244 L 172.5 288 Q 172 296 180 296 L 220 296 Q 228 296 227.5 288 L 224.5 244 Q 224 236 216 236 Z"/>
-        <ellipse class="tr-fill" cx="200" cy="303" rx="45" ry="21"/>
-        <path class="tr-fill" d="M 153 331.5 Q 156 322 166 322 L 234 322 Q 244 322 247 331.5 L 255 356.5 Q 258 366 248 366 L 152 366 Q 142 366 145 356.5 Z"/>
-        <path class="tr-fill" d="M 129.1 377.6 Q 132 368 142 368 L 258 368 Q 268 368 270.9 377.6 L 277.1 398.4 Q 280 408 270 408 L 130 408 Q 120 408 122.9 398.4 Z"/>
-        <rect class="tr-fill" x="118" y="408" width="164" height="46" rx="14"/>
-        <path class="tr-shine" d="M120 58 C 124 128, 146 190, 186 220 C 156 178, 140 120, 138 58 Z"/>
-      </g>
-    </svg>
+  <!-- ── honours ── -->
+  <section class="ac-section">
+    <h2>
+      <svg class="ac-ico" viewBox="0 0 400 470" aria-hidden="true">
+        <path class="ic-fill" d="M94 44 C 96 132, 128 214, 200 238 C 272 214, 304 132, 306 44 Z"/>
+        <ellipse class="ic-fill" cx="200" cy="44" rx="106" ry="24"/>
+        <path class="ic-fill" d="M 184 236 Q 176 236 175.5 244 L 172.5 288 Q 172 296 180 296 L 220 296 Q 228 296 227.5 288 L 224.5 244 Q 224 236 216 236 Z"/>
+        <path class="ic-fill" d="M 129.1 377.6 Q 132 368 142 368 L 258 368 Q 268 368 270.9 377.6 L 277.1 398.4 Q 280 408 270 408 L 130 408 Q 120 408 122.9 398.4 Z"/>
+      </svg>
+      Honours &amp; awards
+    </h2>
+    <ul class="ac-awards">
+      <li class="ac-award">
+        <span class="ac-award-year">Year</span>
+        <h3 class="ph">Award or distinction</h3>
+        <p class="ph">What it was for, and who awarded it.</p>
+      </li>
+      <li class="ac-award">
+        <span class="ac-award-year">Year</span>
+        <h3 class="ph">Award or distinction</h3>
+        <p class="ph">What it was for, and who awarded it.</p>
+      </li>
+      <li class="ac-award">
+        <span class="ac-award-year">Year</span>
+        <h3 class="ph">Award or distinction</h3>
+        <p class="ph">What it was for, and who awarded it.</p>
+      </li>
+    </ul>
+  </section>
 
-    <p class="ac-trophy-text">text</p>
-
-    <!-- sprigs -->
-    <svg class="ac-sprig sprig-tr" viewBox="0 0 200 310" aria-hidden="true">
-      <defs><path id="aleaf" d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z"/></defs>
-      <path class="stem" d="M26 8 C 58 58, 92 106, 116 154 C 138 198, 156 248, 172 296"/>
-      <g class="leaves">
-        <use href="#aleaf" transform="translate(47 40)   rotate(114) scale(1)"/>
-        <use href="#aleaf" transform="translate(50 45)   rotate(4)   scale(.92)"/>
-        <use href="#aleaf" transform="translate(67 73)   rotate(116) scale(.95)"/>
-        <use href="#aleaf" transform="translate(70 78)   rotate(6)   scale(.88)"/>
-        <use href="#aleaf" transform="translate(85 109)  rotate(118) scale(.89)"/>
-        <use href="#aleaf" transform="translate(88 114)  rotate(8)   scale(.83)"/>
-        <use href="#aleaf" transform="translate(101 143) rotate(120) scale(.82)"/>
-        <use href="#aleaf" transform="translate(104 148) rotate(10)  scale(.76)"/>
-        <use href="#aleaf" transform="translate(117 181) rotate(122) scale(.74)"/>
-        <use href="#aleaf" transform="translate(120 186) rotate(12)  scale(.68)"/>
-        <use href="#aleaf" transform="translate(133 219) rotate(124) scale(.64)"/>
-        <use href="#aleaf" transform="translate(136 224) rotate(14)  scale(.59)"/>
-        <use href="#aleaf" transform="translate(169 292) rotate(68)  scale(.46)"/>
-      </g>
-    </svg>
-
-    <svg class="ac-sprig sprig-bl" viewBox="0 0 200 310" aria-hidden="true">
-      <path class="stem" d="M26 8 C 58 58, 92 106, 116 154 C 138 198, 156 248, 172 296"/>
-      <g class="leaves">
-        <use href="#aleaf" transform="translate(47 40)   rotate(114) scale(1)"/>
-        <use href="#aleaf" transform="translate(50 45)   rotate(4)   scale(.92)"/>
-        <use href="#aleaf" transform="translate(67 73)   rotate(116) scale(.95)"/>
-        <use href="#aleaf" transform="translate(70 78)   rotate(6)   scale(.88)"/>
-        <use href="#aleaf" transform="translate(85 109)  rotate(118) scale(.89)"/>
-        <use href="#aleaf" transform="translate(88 114)  rotate(8)   scale(.83)"/>
-        <use href="#aleaf" transform="translate(101 143) rotate(120) scale(.82)"/>
-        <use href="#aleaf" transform="translate(104 148) rotate(10)  scale(.76)"/>
-        <use href="#aleaf" transform="translate(169 292) rotate(68)  scale(.46)"/>
-      </g>
-    </svg>
-
-    <svg class="ac-sprig sprig-r" viewBox="0 0 200 310" aria-hidden="true">
-      <path class="stem" d="M26 8 C 58 58, 92 106, 116 154 C 138 198, 156 248, 172 296"/>
-      <g class="leaves">
-        <use href="#aleaf" transform="translate(47 40)   rotate(114) scale(1)"/>
-        <use href="#aleaf" transform="translate(50 45)   rotate(4)   scale(.92)"/>
-        <use href="#aleaf" transform="translate(67 73)   rotate(116) scale(.95)"/>
-        <use href="#aleaf" transform="translate(70 78)   rotate(6)   scale(.88)"/>
-        <use href="#aleaf" transform="translate(85 109)  rotate(118) scale(.89)"/>
-        <use href="#aleaf" transform="translate(88 114)  rotate(8)   scale(.83)"/>
-      </g>
-    </svg>
-
-    <!-- blossoms -->
-    <span class="bloom bloom-cream" style="--x:60.5%;--y:11%;   --s:.9;  --r:14deg"></span>
-    <span class="bloom bloom-cream" style="--x:60.5%;--y:60.5%; --s:.95; --r:-18deg"></span>
-    <span class="bloom bloom-cream" style="--x:9.5%; --y:79.5%; --s:.85; --r:26deg"></span>
-    <span class="bloom bloom-cream" style="--x:95%;  --y:90.5%; --s:.8;  --r:-12deg"></span>
-    <span class="bloom bloom-cream" style="--x:29%;  --y:94%;   --s:.65; --r:20deg"></span>
-    <span class="bloom bloom-cream" style="--x:52%;  --y:83%;   --s:.6;  --r:-28deg"></span>
-    <span class="bloom bloom-cream" style="--x:3%;   --y:22%;   --s:.7;  --r:34deg"></span>
-
-  </div>
 </main>
 
 <script src="script.js"></script>
