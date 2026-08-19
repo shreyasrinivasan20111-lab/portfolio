@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Art Gallery — Shreya Srinivasan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23A3A390'/></svg>">
+<noscript><style>.fly{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body data-page="gallery" class="striped">
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-dot"></span>
+    <span class="brand-name">shreya. s</span>
+  </a>
+  <nav class="links">
+    <a class="fly-link" style="--i:1" href="sanskrit.html">Sanskrit</a>
+    <a class="fly-link" style="--i:2" href="music.html">Music</a>
+    <a class="fly-link" style="--i:3" href="art.html">Art</a>
+    <a class="fly-link" style="--i:4" href="academics.html">Academics</a>
+  </nav>
+</header>
+
+<main class="gallery">
+  <section class="stage">
+    <div class="stage-panel"></div>
+    <div class="stage-tab"></div>
+
+    <!-- botanical corners -->
+    <svg class="sprig sprig-tl" viewBox="0 0 200 310" aria-hidden="true">
+      <defs>
+        <!-- a single pointed leaf, base at the origin -->
+        <path id="leaf" d="M0 0 C 11 -10, 32 -10, 46 0 C 32 10, 11 10, 0 0 Z"/>
+      </defs>
+      <path class="stem" d="M174 14 C 142 64, 110 112, 86 160 C 64 204, 46 254, 30 300"/>
+      <g class="leaves">
+        <use href="#leaf" transform="translate(153 46)  rotate(66)  scale(1)"/>
+        <use href="#leaf" transform="translate(150 51)  rotate(176) scale(.92)"/>
+        <use href="#leaf" transform="translate(133 79)  rotate(64)  scale(.95)"/>
+        <use href="#leaf" transform="translate(130 84)  rotate(174) scale(.88)"/>
+        <use href="#leaf" transform="translate(115 115) rotate(62)  scale(.89)"/>
+        <use href="#leaf" transform="translate(112 120) rotate(172) scale(.83)"/>
+        <use href="#leaf" transform="translate(99 149)  rotate(60)  scale(.82)"/>
+        <use href="#leaf" transform="translate(96 154)  rotate(170) scale(.76)"/>
+        <use href="#leaf" transform="translate(83 187)  rotate(58)  scale(.74)"/>
+        <use href="#leaf" transform="translate(80 192)  rotate(168) scale(.68)"/>
+        <use href="#leaf" transform="translate(67 225)  rotate(56)  scale(.64)"/>
+        <use href="#leaf" transform="translate(64 230)  rotate(166) scale(.59)"/>
+        <use href="#leaf" transform="translate(51 261)  rotate(54)  scale(.53)"/>
+        <use href="#leaf" transform="translate(48 266)  rotate(164) scale(.48)"/>
+        <use href="#leaf" transform="translate(33 296)  rotate(112) scale(.46)"/>
+      </g>
+    </svg>
+
+    <svg class="sprig sprig-br" viewBox="0 0 200 310" aria-hidden="true">
+      <path class="stem" d="M174 14 C 142 64, 110 112, 86 160 C 64 204, 46 254, 30 300"/>
+      <g class="leaves">
+        <use href="#leaf" transform="translate(153 46)  rotate(66)  scale(1)"/>
+        <use href="#leaf" transform="translate(150 51)  rotate(176) scale(.92)"/>
+        <use href="#leaf" transform="translate(133 79)  rotate(64)  scale(.95)"/>
+        <use href="#leaf" transform="translate(130 84)  rotate(174) scale(.88)"/>
+        <use href="#leaf" transform="translate(115 115) rotate(62)  scale(.89)"/>
+        <use href="#leaf" transform="translate(112 120) rotate(172) scale(.83)"/>
+        <use href="#leaf" transform="translate(99 149)  rotate(60)  scale(.82)"/>
+        <use href="#leaf" transform="translate(96 154)  rotate(170) scale(.76)"/>
+        <use href="#leaf" transform="translate(83 187)  rotate(58)  scale(.74)"/>
+        <use href="#leaf" transform="translate(80 192)  rotate(168) scale(.68)"/>
+        <use href="#leaf" transform="translate(67 225)  rotate(56)  scale(.64)"/>
+        <use href="#leaf" transform="translate(64 230)  rotate(166) scale(.59)"/>
+        <use href="#leaf" transform="translate(51 261)  rotate(54)  scale(.53)"/>
+        <use href="#leaf" transform="translate(48 266)  rotate(164) scale(.48)"/>
+        <use href="#leaf" transform="translate(33 296)  rotate(112) scale(.46)"/>
+      </g>
+    </svg>
+
+    <!-- scattered blossoms -->
+    <span class="bloom" style="--x:22%; --y:6%;  --s:1;   --r:14deg"></span>
+    <span class="bloom" style="--x:90%; --y:14%; --s:.78; --r:-24deg"></span>
+    <span class="bloom" style="--x:4%;  --y:62%; --s:.86; --r:34deg"></span>
+    <span class="bloom" style="--x:28%; --y:78%; --s:.72; --r:-10deg"></span>
+    <span class="bloom" style="--x:82%; --y:70%; --s:.92; --r:22deg"></span>
+    <span class="bloom" style="--x:64%; --y:94%; --s:.7;  --r:-30deg"></span>
+    <span class="bloom" style="--x:12%; --y:31%; --s:.62; --r:8deg"></span>
+    <span class="bloom" style="--x:95%; --y:46%; --s:.66; --r:-16deg"></span>
+
+    <button class="see-all" id="seeAll" type="button" aria-expanded="false">see all</button>
+
+    <!-- every artwork at once -->
+    <div class="grid-view" id="gridView" hidden></div>
+
+    <!-- carousel -->
+    <div class="showcase">
+      <div class="track">
+        <figure class="slide"><figcaption class="slide-label">image 1</figcaption></figure>
+        <figure class="slide"><figcaption class="slide-label">image 2</figcaption></figure>
+        <figure class="slide"><figcaption class="slide-label">image 3</figcaption></figure>
+        <figure class="slide"><figcaption class="slide-label">image 4</figcaption></figure>
+        <figure class="slide"><figcaption class="slide-label">image 5</figcaption></figure>
+        <figure class="slide"><figcaption class="slide-label">image 6</figcaption></figure>
+      </div>
+
+      <button class="arrow arrow-prev" type="button" aria-label="Previous artwork">‹</button>
+      <button class="arrow arrow-next" type="button" aria-label="Next artwork">›</button>
+    </div>
+
+    <p class="stage-caption">My Art Gallery</p>
+  </section>
+
+  <div class="dots" role="tablist" aria-label="Choose artwork"></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
