@@ -200,6 +200,19 @@ a { color: inherit; text-decoration: none; }
 .btn:hover::before, .btn:focus-visible::before { transform: translateY(0); }
 .btn-ghost { --bg: transparent; --fg: var(--sand); border-color: color-mix(in srgb, var(--sand) 38%, transparent); }
 
+/* On the light bands the default sand fill sits too close to the ground,
+   and the moss hover is only 2.3:1 behind sand text. Invert instead:
+   olive fill (sand on it is 5.02) deepening to ink on hover (8.03). */
+.band-paper .btn { --bg: var(--olive); --fg: var(--sand); border-color: var(--olive); }
+.band-paper .btn::before { background: var(--ink); }
+.btn-donate { margin-top: clamp(1.5rem, 3vw, 2.25rem); }
+
+/* visually hidden, still read aloud */
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0;
+}
+
 .scroll-cue {
   position: absolute; left: var(--gut); bottom: clamp(1.5rem, 3vw, 2.5rem);
   display: flex; align-items: center; gap: .6rem;
@@ -231,6 +244,26 @@ a { color: inherit; text-decoration: none; }
 }
 .head h2 em { font-style: italic; color: var(--moss); }
 .head p { max-width: 58ch; opacity: .82; }
+.head .lede-label {
+  display: block; margin-bottom: .45rem;
+  font-size: .72rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .18em;
+  color: var(--bark);            /* moss misses AA on the paper ground */
+}
+.band-ink .head .lede-label { color: var(--moss); }
+.head p strong { font-weight: 600; opacity: 1; }
+
+/* bulleted detail under a section lede. A short rule rather than a disc,
+   so the marker belongs to the same family as the section rules. */
+.head-list {
+  list-style: none; margin-top: .85rem;
+  display: grid; gap: .5rem; max-width: 64ch;
+}
+.head-list li { position: relative; padding-left: 1.4em; opacity: .84; }
+.head-list li::before {
+  content: ""; position: absolute; left: 0; top: .78em;
+  width: .7em; height: 1px; background: var(--moss);
+}
 
 /* ── scroll reveal ───────────────────────────────────────── */
 .reveal { opacity: 0; transform: translateY(26px); }
@@ -322,11 +355,24 @@ a { color: inherit; text-decoration: none; }
 .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .about-copy > * + * { margin-top: 1.1em; }
 .about-copy p { max-width: 58ch; }
-.facts { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.6rem; }
-.facts li {
-  list-style: none; padding: .42em .95em; border-radius: 99px;
-  border: 1px solid color-mix(in srgb, currentColor 26%, transparent);
-  font-size: .8rem; letter-spacing: .02em;
+/* A single statement rather than the old row of short tags: forty words
+   will not sit in a pill, so it keeps the tags' outline and radius but
+   takes the shape of a callout. */
+.fact {
+  margin-top: 1.7rem; max-width: 54ch;
+  padding: clamp(.95rem, 1.8vw, 1.3rem) clamp(1.1rem, 2vw, 1.5rem);
+  border-radius: var(--r);
+  border: 1px solid color-mix(in srgb, currentColor 24%, transparent);
+  background: color-mix(in srgb, currentColor 4%, transparent);
+  font-size: .93rem; line-height: 1.65;
+}
+#academics .fact { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.fact b {
+  display: block; margin-bottom: .4rem;
+  font-size: .7rem; font-weight: 600; letter-spacing: .18em;
+  text-transform: uppercase;
+  /* bark, not moss: moss is 2.85:1 on paper and misses AA at this size */
+  color: var(--bark);
 }
 
 /* ── slot placeholder (shared) ───────────────────────────── */
@@ -344,7 +390,10 @@ a { color: inherit; text-decoration: none; }
 .stats {
   list-style: none;
   display: grid; gap: clamp(.6rem, 1.2vw, 1rem);
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  /* capped track and start-aligned, so a row holding a single stat sits at
+     its own width instead of stretching the full column */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 230px));
+  justify-content: start;
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 .stat {
@@ -372,11 +421,12 @@ a { color: inherit; text-decoration: none; }
 /* ── feature cards (sanskrit / music) ────────────────────── */
 .cards {
   display: grid; gap: clamp(.9rem, 1.8vw, 1.5rem);
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+  align-items: start;
 }
 .card {
   position: relative; overflow: hidden;
-  padding: clamp(1.4rem, 2.6vw, 2.1rem); border-radius: var(--r);
+  padding: clamp(1.6rem, 3vw, 2.6rem); border-radius: var(--r);
   border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
   background: color-mix(in srgb, currentColor 5%, transparent);
   transition: transform .5s var(--slow), border-color .4s var(--ease), background-color .4s var(--ease);
@@ -389,8 +439,20 @@ a { color: inherit; text-decoration: none; }
 .card:hover { transform: translateY(-6px); border-color: color-mix(in srgb, currentColor 34%, transparent); }
 .card:hover::after { transform: scaleX(1); }
 .card-no { font-size: .72rem; font-weight: 600; letter-spacing: .2em; color: var(--moss); }
-.card h3 { margin-top: .7rem; font-family: var(--display); font-size: clamp(1.15rem,2vw,1.5rem); font-weight: 700; }
-.card p { margin-top: .55rem; font-size: .92rem; opacity: .82; }
+.card h3 { margin-top: .8rem; font-family: var(--display); font-size: clamp(1.2rem,2.2vw,1.75rem); font-weight: 700; }
+.card p { margin-top: .7rem; font-size: .96rem; opacity: .82; }
+
+/* subheadings within a card. bark rather than moss: moss is 2.85:1 on the
+   paper ground and misses AA at this size. */
+.card h4 {
+  margin-top: 1.5rem; font-family: var(--ui);
+  font-size: .76rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .15em;
+  color: var(--bark);
+}
+.band-ink .card h4 { color: var(--moss); }
+.card h4 + .sub-note { margin-top: .4rem; font-size: .9rem; opacity: .8; }
+.card h4 + .head-list { margin-top: .7rem; }
 
 /* ── media rows (music) ──────────────────────────────────── */
 .media {
@@ -409,9 +471,14 @@ a { color: inherit; text-decoration: none; }
 /* deliberate composition: the two landscape frames stack against the
    portrait one, so the row has no ragged tail */
 @media (min-width: 780px) {
-  .media { grid-template-columns: 1.4fr 1fr; }
+  .media { grid-template-columns: 1.4fr 1fr; align-items: stretch; }
   .frame.tall { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; }
+  /* paired with a text card, the frame takes the row's height instead of
+     its own ratio, so the two sit flush */
+  .media .card + .frame { aspect-ratio: auto; }
 }
+.head-list:first-child { margin-top: 0; }
+.card .head-list { margin-top: 1rem; }
 
 
 /* ── art carousel ─────────────────────────────────────────
@@ -535,32 +602,14 @@ body.grid-open .dots { visibility: hidden; }
   .grid-view { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* ── awards ──────────────────────────────────────────────── */
-.awards { list-style: none; display: grid; gap: clamp(.7rem, 1.4vw, 1rem); }
-.award {
-  display: grid; align-items: baseline; gap: .25rem clamp(1rem, 2.5vw, 2rem);
-  grid-template-columns: minmax(4rem, 5rem) 1fr auto;
-  padding: clamp(1rem, 2vw, 1.4rem) clamp(1.1rem, 2.2vw, 1.6rem);
-  border-radius: var(--r-sm);
-  border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
-  transition: transform .45s var(--slow), background-color .4s var(--ease), border-color .4s var(--ease);
-}
-.award:hover {
-  transform: translateX(6px);
-  background: color-mix(in srgb, currentColor 6%, transparent);
-  border-color: color-mix(in srgb, currentColor 34%, transparent);
-}
-.award-year { font-size: .82rem; font-weight: 600; letter-spacing: .06em; color: var(--moss); }
-.award h3 { font-family: var(--display); font-size: clamp(1rem,1.7vw,1.3rem); font-weight: 700; }
-.award p { grid-column: 2; font-size: .9rem; opacity: .8; }
-.award-tag {
-  font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
-  padding: .32em .8em; border-radius: 99px;
-  border: 1px solid color-mix(in srgb, currentColor 26%, transparent); opacity: .8;
-}
-
 /* ── events ──────────────────────────────────────────────── */
-.events { display: grid; gap: clamp(.8rem, 1.6vw, 1.2rem); grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.events {
+  display: grid; gap: clamp(.8rem, 1.6vw, 1.2rem);
+  /* capped and start-aligned so a single event sits at its own width rather
+     than stretching the full column */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 380px));
+  justify-content: start;
+}
 .event {
   display: grid; gap: .5rem; padding: clamp(1.2rem, 2.4vw, 1.8rem);
   border-radius: var(--r); border: 1px solid color-mix(in srgb, currentColor 18%, transparent);
@@ -575,11 +624,8 @@ body.grid-open .dots { visibility: hidden; }
 .event p { font-size: .9rem; opacity: .82; }
 
 /* ── footer ──────────────────────────────────────────────── */
-.foot { padding: clamp(3rem,6vw,5rem) var(--gut) clamp(2rem,4vw,3rem); background: var(--ink); color: var(--sand); }
+.foot { padding: clamp(2.5rem,5vw,4rem) var(--gut) clamp(2rem,4vw,3rem); background: var(--ink); color: var(--sand); }
 .foot-in { max-width: 1180px; margin-inline: auto; display: grid; gap: 2rem; }
-.foot h2 { font-family: var(--display); font-size: clamp(1.8rem,4.5vw,3.2rem); line-height: 1.05; font-weight: 700; }
-.foot h2 em { font-style: italic; color: var(--moss); }
-.foot p { max-width: 46ch; color: var(--grullo); }
 .foot .btn { margin-top: .4rem; justify-self: start; }  /* grid item would stretch full width */
 .foot-row {
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center;
@@ -613,9 +659,6 @@ p.ph, .slot small.ph { text-decoration: none; }
   .nav-links a { font-size: 1.1rem; }
   .entry { grid-template-columns: 1fr; }
   .entry-when { grid-row: auto; padding-top: 0; }
-  .award { grid-template-columns: 1fr; }
-  .award p, .award-tag { grid-column: 1; }
-  .award-tag { justify-self: start; }
 }
 
 @media (prefers-reduced-motion: reduce) {
