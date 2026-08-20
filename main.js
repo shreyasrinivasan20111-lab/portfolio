@@ -7,6 +7,17 @@
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* return to top, built before the scroll handler so that handler can
+     hold a reference instead of querying for it on every frame */
+  const toTop = document.createElement('button');
+  toTop.type = 'button';
+  toTop.className = 'totop';
+  toTop.setAttribute('aria-label', 'Back to top');
+  toTop.innerHTML = '&uarr;';
+  toTop.addEventListener('click', () =>
+    scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
+  document.body.append(toTop);
+
   /* ── scroll progress ─────────────────────────────────── */
   const bar = document.querySelector('.progress');
   const nav = document.getElementById('nav');
@@ -17,6 +28,7 @@
     const max = document.documentElement.scrollHeight - innerHeight;
     if (bar) bar.style.setProperty('--p', max > 0 ? (y / max).toFixed(4) : 0);
     nav.classList.toggle('stuck', y > 12);
+    toTop.classList.toggle('show', y > innerHeight * .9);
     ticking = false;
   };
   addEventListener('scroll', () => {
@@ -185,6 +197,60 @@
     }
 
     layout();
+  }
+
+  /* ── interaction layer ───────────────────────────────────
+     Pointer effects are gated on a fine pointer that can hover,
+     so a touch device never pays for work it cannot show. */
+  const fine = matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* wrap each section heading so it can rise out of a mask, the way
+     the hero name does. Done here rather than in the markup so the
+     HTML stays readable and the effect degrades to plain text. */
+  if (!reduced) {
+    document.querySelectorAll('.head h2').forEach(h => {
+      h.innerHTML = `<span class="mask"><i>${h.innerHTML}</i></span>`;
+    });
+  }
+
+  /* dark bands warm toward the pointer */
+  if (fine && !reduced) {
+    document.querySelectorAll('.band-ink').forEach(band => {
+      let raf = 0;
+      band.addEventListener('pointermove', e => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const r = band.getBoundingClientRect();
+          band.style.setProperty('--mx', `${e.clientX - r.left}px`);
+          band.style.setProperty('--my', `${e.clientY - r.top}px`);
+          raf = 0;
+        });
+      }, { passive: true });
+      band.addEventListener('pointerenter', () => band.classList.add('lit'));
+      band.addEventListener('pointerleave', () => band.classList.remove('lit'));
+    });
+
+    /* a few degrees of tilt — enough to feel responsive, not enough
+       to read as a gimmick */
+    const MAX = 3.5;
+    document.querySelectorAll('.card, .event').forEach(el => {
+      let raf = 0;
+      el.addEventListener('pointermove', e => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const r = el.getBoundingClientRect();
+          const px = (e.clientX - r.left) / r.width  - .5;
+          const py = (e.clientY - r.top)  / r.height - .5;
+          el.style.setProperty('--ry', `${( px * MAX).toFixed(2)}deg`);
+          el.style.setProperty('--rx', `${(-py * MAX).toFixed(2)}deg`);
+          raf = 0;
+        });
+      }, { passive: true });
+      el.addEventListener('pointerleave', () => {
+        el.style.setProperty('--rx', '0deg');
+        el.style.setProperty('--ry', '0deg');
+      });
+    });
   }
 
   /* ── footer year ─────────────────────────────────────── */
