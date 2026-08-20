@@ -4,60 +4,239 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shreya Srinivasan</title>
+<meta name="description" content="Portfolio of Shreya Srinivasan — academics, Sanskrit, music, art, awards and events.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23A3A390'/></svg>">
-<noscript><style>.fly{opacity:1!important;transform:none!important}</style></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23878568'/></svg>">
 </head>
-<body data-page="home" class="striped">
+<body>
 
-<header class="topbar">
-  <a class="brand" href="index.html">
-    <span class="brand-dot"></span>
-    <span class="brand-name">shreya. s</span>
-  </a>
-  <nav class="links">
-    <a class="fly-link" style="--i:1" href="sanskrit.html">Sanskrit</a>
-    <a class="fly-link" style="--i:2" href="music.html">Music</a>
-    <a class="fly-link" style="--i:3" href="art.html">Art</a>
-    <a class="fly-link" style="--i:4" href="academics.html">Academics</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top"><i></i>shreya. s</a>
+  <nav aria-label="Sections">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="#sanskrit">Sanskrit</a></li>
+      <li><a href="#music">Music</a></li>
+      <li><a href="#art">Art</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#events">Events</a></li>
+    </ul>
   </nav>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<main class="canvas">
+<main id="top">
 
-  <!-- khaki panel (stepped) — the name lives inside it -->
-  <div class="khaki khaki-main">
-    <h1 class="name">
-      <span class="name-line fly-name" style="--i:1">Shreya</span>
-      <span class="name-line fly-name" style="--i:2">Srinivasan</span>
+  <!-- ── hero ── -->
+  <section class="hero">
+    <p class="hero-kicker">Portfolio</p>
+    <h1 class="hero-name">
+      <span><i>Shreya</i></span>
+      <span><i>Srinivasan</i></span>
     </h1>
-  </div>
-  <div class="khaki khaki-ext"></div>
+    <p class="hero-lede ph">A short introduction — a sentence or two on who you are,
+      what you study, and the thread that runs through your work.</p>
+    <div class="hero-actions">
+      <a class="btn" href="#about">Explore the work</a>
+      <a class="btn btn-ghost" href="#events">Upcoming events</a>
+    </div>
+    <span class="scroll-cue" aria-hidden="true"><i></i>Scroll</span>
+  </section>
 
-  <!-- picture frame -->
-  <div class="pic">
-    <span class="pic-label">pic</span>
-    <span class="pic-rule"></span>
-  </div>
-
-  <!-- blocks -->
-  <a class="blk blk-sage" href="gallery.html"><span class="box"><span class="blk-label">My Art Gallery</span></span></a>
-  <a class="blk blk-rose" href="events.html"><span class="box"><span class="blk-label">Events</span></span></a>
-  <a class="blk blk-rose-outline" href="awards.html"><span class="box"><span class="blk-label">Awards</span></span></a>
-  <div class="blk blk-peach">
-    <span class="box">
-      <div class="about-copy">
-        <h2 class="about-title">About Me</h2>
-        <p class="about-body"></p>
+  <!-- ── about me ── -->
+  <section class="band band-paper" id="about">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">01</span><span class="head-rule"></span></div>
+        <h2>About <em>me</em></h2>
       </div>
-    </span>
-  </div>
+      <div class="about">
+        <figure class="portrait reveal">
+          <div class="slot"><b>Portrait</b><i></i><small>Drop a photograph here</small></div>
+        </figure>
+        <div class="about-copy reveal" style="--d:.1s">
+          <p class="ph">Two or three sentences introducing yourself — where you study,
+            what you are drawn to, and how the strands below connect.</p>
+          <p class="ph">A second paragraph for anything that deserves more room: a
+            long-running interest, a question you keep returning to, or what you
+            are working towards next.</p>
+          <ul class="facts">
+            <li class="ph">Interest</li>
+            <li class="ph">Interest</li>
+            <li class="ph">Interest</li>
+            <li class="ph">Interest</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── academics ── -->
+  <section class="band band-ink" id="academics">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">02</span><span class="head-rule"></span></div>
+        <h2>Academics</h2>
+        <p class="ph">A line on your academic focus and what you are pursuing.</p>
+      </div>
+      <ul class="stats reveal" style="--d:.08s">
+        <li class="stat"><b>&mdash;</b><span>Weighted GPA</span></li>
+        <li class="stat"><b>&mdash;</b><span>Honours courses</span></li>
+        <li class="stat"><b>&mdash;</b><span>Years of Sanskrit</span></li>
+        <li class="stat"><b>&mdash;</b><span>Distinctions</span></li>
+      </ul>
+      <ol class="timeline reveal" style="--d:.16s">
+        <li class="entry">
+          <p class="entry-when">Year &ndash; Year</p>
+          <h3 class="ph">School or programme name</h3>
+          <p class="ph">One or two lines on what this covered and what set it apart.</p>
+        </li>
+        <li class="entry">
+          <p class="entry-when">Year &ndash; Year</p>
+          <h3 class="ph">Earlier school or programme</h3>
+          <p class="ph">Keep it to the detail a reader could not guess from the name.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ── sanskrit ── -->
+  <section class="band band-paper" id="sanskrit">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">03</span><span class="head-rule"></span></div>
+        <h2>Sanskrit</h2>
+        <p class="ph">A line on how long you have studied, and what draws you to it.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><span class="card-no">01</span>
+          <h3 class="ph">Study or text</h3><p class="ph">What you worked on and what it asked of you.</p></article>
+        <article class="card reveal" style="--d:.09s"><span class="card-no">02</span>
+          <h3 class="ph">Recitation</h3><p class="ph">Where you have recited, and in what form.</p></article>
+        <article class="card reveal" style="--d:.18s"><span class="card-no">03</span>
+          <h3 class="ph">Translation</h3><p class="ph">A passage you have worked through.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── music ── -->
+  <section class="band band-ink" id="music">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">04</span><span class="head-rule"></span></div>
+        <h2>Music</h2>
+        <p class="ph">What you play, how long you have studied, where you have performed.</p>
+      </div>
+      <div class="media">
+        <figure class="frame reveal"><div class="slot"><b>Image</b><i></i><small>Performance photograph</small></div></figure>
+        <figure class="frame reveal" style="--d:.09s"><div class="slot"><b>Image</b><i></i><small>Performance photograph</small></div></figure>
+        <figure class="frame tall reveal" style="--d:.18s"><div class="slot"><b>Image</b><i></i><small>Portrait photograph</small></div></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── art ── -->
+  <section class="band band-paper" id="art">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">05</span><span class="head-rule"></span></div>
+        <h2>Art</h2>
+        <p class="ph">A line on the media you work in and what you are exploring.</p>
+      </div>
+      <div class="stage reveal" style="--d:.08s">
+        <button class="see-all" id="seeAll" type="button" aria-expanded="false">See all</button>
+
+        <!-- every artwork at once -->
+        <div class="grid-view" id="gridView" hidden></div>
+
+        <div class="showcase">
+          <div class="track">
+            <figure class="slide"><figcaption class="slide-label ph">Work 1</figcaption></figure>
+            <figure class="slide"><figcaption class="slide-label ph">Work 2</figcaption></figure>
+            <figure class="slide"><figcaption class="slide-label ph">Work 3</figcaption></figure>
+            <figure class="slide"><figcaption class="slide-label ph">Work 4</figcaption></figure>
+            <figure class="slide"><figcaption class="slide-label ph">Work 5</figcaption></figure>
+            <figure class="slide"><figcaption class="slide-label ph">Work 6</figcaption></figure>
+          </div>
+          <button class="arrow arrow-prev" type="button" aria-label="Previous artwork">&lsaquo;</button>
+          <button class="arrow arrow-next" type="button" aria-label="Next artwork">&rsaquo;</button>
+        </div>
+      </div>
+      <div class="dots" role="tablist" aria-label="Choose artwork"></div>
+    </div>
+  </section>
+
+  <!-- ── awards ── -->
+  <section class="band band-ink" id="awards">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">06</span><span class="head-rule"></span></div>
+        <h2>Awards</h2>
+        <p class="ph">Recognitions worth listing, most recent first.</p>
+      </div>
+      <ul class="awards">
+        <li class="award reveal"><span class="award-year">Year</span>
+          <h3 class="ph">Award or distinction</h3><span class="award-tag ph">Category</span>
+          <p class="ph">What it was for, and who awarded it.</p></li>
+        <li class="award reveal" style="--d:.08s"><span class="award-year">Year</span>
+          <h3 class="ph">Award or distinction</h3><span class="award-tag ph">Category</span>
+          <p class="ph">What it was for, and who awarded it.</p></li>
+        <li class="award reveal" style="--d:.16s"><span class="award-year">Year</span>
+          <h3 class="ph">Award or distinction</h3><span class="award-tag ph">Category</span>
+          <p class="ph">What it was for, and who awarded it.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ── events ── -->
+  <section class="band band-paper" id="events">
+    <div class="wrap">
+      <div class="head reveal">
+        <div class="head-row"><span class="head-no">07</span><span class="head-rule"></span></div>
+        <h2>Events</h2>
+        <p class="ph">Performances, recitals and appearances.</p>
+      </div>
+      <div class="events">
+        <article class="event reveal">
+          <span class="event-date">Month Year</span>
+          <h3 class="ph">Event name</h3><p class="ph">Venue, and what you performed or presented.</p></article>
+        <article class="event reveal" style="--d:.09s">
+          <span class="event-date">Month Year</span>
+          <h3 class="ph">Event name</h3><p class="ph">Venue, and what you performed or presented.</p></article>
+        <article class="event reveal" style="--d:.18s">
+          <span class="event-date">Month Year</span>
+          <h3 class="ph">Event name</h3><p class="ph">Venue, and what you performed or presented.</p></article>
+      </div>
+    </div>
+  </section>
 
 </main>
 
-<script src="script.js"></script>
+<footer class="foot">
+  <div class="foot-in">
+    <h2 class="reveal">Get in <em>touch</em></h2>
+    <p class="reveal ph" style="--d:.08s">A line inviting people to write to you, and what
+      you are open to — collaborations, performances, or questions about your work.</p>
+    <a class="btn reveal ph" style="--d:.16s" href="#">your.email@example.com</a>
+    <div class="foot-row">
+      <span>&copy; <span id="yr">2026</span> Shreya Srinivasan</span>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#art">Art</a></li>
+        <li><a href="#events">Events</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
