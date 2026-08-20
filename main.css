@@ -513,7 +513,21 @@ a { color: inherit; text-decoration: none; }
 .slide[data-off="far"]{ --lx: 50%; --sc: .5;  --op: 0;   --bl: 12px; --z: 0; }
 .slide[data-off="-1"]:hover,
 .slide[data-off="1"]:hover { --op: .95; --bl: 1px; --sc: .78; }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+
+/* two works sharing one frame: both are portrait, so side by side they fill
+   a landscape slide better than either would alone */
+.slide-pair {
+  position: absolute; inset: 0;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2%; padding: 3%;
+}
+.slide-pair img { width: 100%; height: 100%; object-fit: contain; }
+/* the caption hides on any slide carrying artwork, paired or not */
+.slide:has(.slide-pair) .slide-label { display: none; }
+/* the see-all grid clones a slide's markup into .g-item, so the caption needs
+   hiding there too or it prints over the artwork */
+.g-item:has(img) .slide-label { display: none; }
 .slide:has(img) .slide-label { display: none; }
 
 .arrow {
@@ -575,6 +589,10 @@ body.grid-open .showcase { opacity: 0; pointer-events: none; }
 body.grid-open .dots { visibility: hidden; }
 .showcase { transition: opacity .35s var(--ease); }
 .g-item {
+  /* the grid clones a slide's markup, and a paired slide is absolutely
+     positioned; without a containing block here it anchors to .grid-view
+     and covers the whole overlay */
+  position: relative;
   aspect-ratio: 1045 / 815; border-radius: var(--r-sm);
   display: grid; place-items: center; cursor: pointer; padding: 0;
   overflow: hidden;
@@ -584,7 +602,7 @@ body.grid-open .dots { visibility: hidden; }
 }
 .g-item:hover { transform: translateY(-4px); }
 .g-item.is-current { outline: 2px solid var(--olive); outline-offset: 2px; }
-.g-item img { width: 100%; height: 100%; object-fit: cover; }
+.g-item > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 
 .slide-label {
   font-size: clamp(.62rem, 1.1vw, .8rem); font-weight: 600;
