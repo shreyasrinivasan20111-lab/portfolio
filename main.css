@@ -482,16 +482,29 @@ a { color: inherit; text-decoration: none; }
   aspect-ratio: 4/3; transition: transform .5s var(--slow);
 }
 .frame.tall { aspect-ratio: 3/4; }
+/* a portrait photograph in a square frame: a 2:3 picture loses a third of
+   its height, weighted low so the crop eats the empty stage below the
+   subject rather than the head */
+.frame.frame-full { aspect-ratio: 1/1; }
 .frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.frame.frame-full img { object-position: 50% 30%; }
 .frame:hover { transform: translateY(-5px); }
 /* deliberate composition: the two landscape frames stack against the
    portrait one, so the row has no ragged tail */
 @media (min-width: 780px) {
-  .media { grid-template-columns: 1.4fr 1fr; align-items: stretch; }
+  .media { grid-template-columns: 1.5fr 1fr; align-items: stretch; }
   .frame.tall { grid-column: 2; grid-row: 1 / span 2; aspect-ratio: auto; }
   /* paired with a text card, the frame takes the row's height instead of
      its own ratio, so the two sit flush */
   .media .card + .frame { aspect-ratio: auto; }
+  /* the photograph's column is narrowed (1.5fr above) so its square frame
+     lands near the card's own height; both then share one height */
+  .media .card + .frame.frame-full { aspect-ratio: 1/1; align-self: stretch; }
+  /* the card matches that height, with its text centred in the extra room */
+  .media .card.card-center {
+    align-self: stretch;
+    display: flex; flex-direction: column; justify-content: center;
+  }
 }
 .head-list:first-child { margin-top: 0; }
 .card .head-list { margin-top: 1rem; }
