@@ -53,8 +53,12 @@
 
   /* ── scroll-spy ──────────────────────────────────────── */
   const links = [...document.querySelectorAll('.nav-links a')];
+  /* only same-page hashes are selectors; a sub-page's nav points at
+     index.html#… , which would throw if handed to querySelector */
   const sections = links
-    .map(a => document.querySelector(a.getAttribute('href')))
+    .map(a => a.getAttribute('href'))
+    .filter(h => h && h.startsWith('#'))
+    .map(h => document.querySelector(h))
     .filter(Boolean);
 
   if ('IntersectionObserver' in window && sections.length) {
@@ -83,6 +87,37 @@
   });
   links.forEach(a => a.addEventListener('click', close));
   addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  /* ── horizontal timeline rails ───────────────────────────
+     The scroll container does the work; these buttons only nudge it
+     by one column and then reflect where it ended up. */
+  document.querySelectorAll('[data-rail]').forEach(wrap => {
+    const rail = wrap.querySelector('.rail');
+    const prev = wrap.querySelector('[data-rail-prev]');
+    const next = wrap.querySelector('[data-rail-next]');
+    if (!rail || !prev || !next) return;
+
+    /* measured rather than assumed, so it keeps up with the fluid
+       column width and gap */
+    const step = () => {
+      const items = rail.children;
+      if (items.length < 2) return rail.clientWidth;
+      return items[1].getBoundingClientRect().left
+           - items[0].getBoundingClientRect().left;
+    };
+
+    const sync = () => {
+      const max = rail.scrollWidth - rail.clientWidth;
+      prev.disabled = rail.scrollLeft <= 1;
+      next.disabled = rail.scrollLeft >= max - 1;
+    };
+
+    prev.addEventListener('click', () => rail.scrollBy({ left: -step() }));
+    next.addEventListener('click', () => rail.scrollBy({ left:  step() }));
+    rail.addEventListener('scroll', sync, { passive: true });
+    addEventListener('resize', sync);
+    sync();
+  });
 
   /* ── art carousel ────────────────────────────────────────
      Carried over from the old gallery page. The offset from
