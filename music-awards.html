@@ -5,29 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Music awards — Shreya Srinivasan</title>
 <meta name="description" content="Awards and recognition in Indian classical vocal music — competitions, civic recognition and the performance record behind them.">
+<meta name="theme-color" content="#0B172D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="main.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23878568'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='34%25' cy='30%25'><stop offset='0' stop-color='%23ffffff'/><stop offset='.45' stop-color='%23F2D1C8'/><stop offset='1' stop-color='%2375889C'/></radialGradient></defs><circle cx='50' cy='50' r='42' fill='url(%23g)'/></svg>">
 </head>
 <body>
 
+<div class="sky" aria-hidden="true"></div>
+<canvas class="neurons" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="shooting" aria-hidden="true">
+  <i style="--t:12%;--l:78%;--delay:1s;--dur:9s;--dist:1150px;--tail:230px"></i>
+  <i style="--t:4%;--l:96%;--delay:5.5s;--dur:11s;--dist:1400px;--tail:280px"></i>
+  <i style="--t:34%;--l:88%;--delay:9s;--dur:13s;--dist:980px;--tail:180px"></i>
+  <i style="--t:-2%;--l:52%;--delay:15s;--dur:17s;--dist:1250px;--tail:250px"></i>
+</div>
 <div class="progress" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
   <a class="brand" href="index.html"><i></i>shreya. s</a>
   <nav aria-label="Sections">
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#about">About Me</a></li>
-      <li><a href="index.html#academics">Academics</a></li>
-      <li><a href="index.html#sanskrit">Sanskrit</a></li>
-      <li><a href="index.html#performing-arts">Performing arts</a></li>
-      <li><a href="index.html#art">Art</a></li>
-      <li><a href="index.html#awards">Awards</a></li>
-      <li><a href="index.html#events">Events</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="sanskrit.html">Sanskrit</a></li>
+      <li><a class="current" aria-current="page" href="performing-arts.html">Performing arts</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="events.html">Events</a></li>
     </ul>
   </nav>
+  <button class="key" id="key" type="button" data-on="0" aria-label="Edit this page">&#x270E;</button>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
@@ -35,176 +46,179 @@
 
 <main id="top">
 
-  <!-- ── hero ── -->
   <section class="hero hero-sub">
-    <p class="hero-kicker">Awards</p>
+    <p class="hero-kicker" data-edit="music-awards.awards">Awards</p>
     <h1 class="hero-name">
       <span><i>Music</i></span>
     </h1>
-    <p class="hero-lede">Competition results, civic recognition and the performance
+    <p class="hero-lede" data-edit="music-awards.competition-results-civic-recognition-and-the-pe">Competition results, civic recognition and the performance
       record behind seven years of Indian classical vocal training.</p>
     <div class="hero-actions">
-      <a class="btn btn-ghost" href="index.html#performing-arts">
+      <a class="btn btn-ghost" href="performing-arts.html">
         <span aria-hidden="true">&#x2190;</span> Back to Performing arts
       </a>
     </div>
   </section>
 
-  <!-- ── competitions ── -->
-  <section class="band band-paper" id="competitions">
+  <section class="band" id="competitions">
     <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">01</span><span class="head-rule"></span></div>
-        <h2>Competitions</h2>
-        <p>Winner and placing finalist in multiple national and international Indian
-          classical vocal competitions.</p>
-      </div>
-      <div class="rail-wrap reveal" style="--d:.08s" data-rail>
-        <div class="rail-bar">
-          <div class="rail-nav">
-            <button class="rail-arrow" type="button" data-rail-prev
-                    aria-label="Previous competitions" aria-controls="compRail">
-              <span aria-hidden="true">&#x2190;</span>
-            </button>
-            <button class="rail-arrow" type="button" data-rail-next
-                    aria-label="More competitions" aria-controls="compRail">
-              <span aria-hidden="true">&#x2192;</span>
-            </button>
-          </div>
+      <div class="panel reveal">
+        <div class="head">
+          <div class="head-row"><span class="head-no">01</span><span class="head-rule"></span></div>
+          <h2>Competitions</h2>
+          <p data-edit="music-awards.winner-and-placing-finalist-in-multiple-national">Winner and placing finalist in multiple national and international Indian
+            classical vocal competitions.</p>
         </div>
-        <ol class="rail" id="compRail" tabindex="0"
-            aria-label="Competition results, in order">
-          <li class="milestone">
-            <article class="milestone-card">
-              <figure class="milestone-shot">
-                <div class="slot"><b>Image</b><i></i><small>Photograph</small></div>
-              </figure>
-              <div class="milestone-body">
-                <p class="milestone-when ph">Year</p>
-                <h3 class="ph">Competition name</h3>
-                <p class="ph">Placement, category and organising body.</p>
-              </div>
-            </article>
-            <span class="milestone-mark" aria-hidden="true"></span>
-          </li>
-          <li class="milestone">
-            <article class="milestone-card">
-              <figure class="milestone-shot">
-                <div class="slot"><b>Image</b><i></i><small>Photograph</small></div>
-              </figure>
-              <div class="milestone-body">
-                <p class="milestone-when ph">Year</p>
-                <h3 class="ph">Competition name</h3>
-                <p class="ph">Placement, category and organising body.</p>
-              </div>
-            </article>
-            <span class="milestone-mark" aria-hidden="true"></span>
-          </li>
-          <li class="milestone">
-            <article class="milestone-card">
-              <figure class="milestone-shot">
-                <div class="slot"><b>Image</b><i></i><small>Photograph</small></div>
-              </figure>
-              <div class="milestone-body">
-                <p class="milestone-when ph">Year</p>
-                <h3 class="ph">Competition name</h3>
-                <p class="ph">Placement, category and organising body.</p>
-              </div>
-            </article>
-            <span class="milestone-mark" aria-hidden="true"></span>
-          </li>
-          <li class="milestone">
-            <article class="milestone-card">
-              <figure class="milestone-shot">
-                <div class="slot"><b>Image</b><i></i><small>Photograph</small></div>
-              </figure>
-              <div class="milestone-body">
-                <p class="milestone-when ph">Year</p>
-                <h3 class="ph">Competition name</h3>
-                <p class="ph">Placement, category and organising body.</p>
-              </div>
-            </article>
-            <span class="milestone-mark" aria-hidden="true"></span>
-          </li>
-          <li class="milestone">
-            <article class="milestone-card">
-              <figure class="milestone-shot">
-                <div class="slot"><b>Image</b><i></i><small>Photograph</small></div>
-              </figure>
-              <div class="milestone-body">
-                <p class="milestone-when ph">Year</p>
-                <h3 class="ph">Competition name</h3>
-                <p class="ph">Placement, category and organising body.</p>
-              </div>
-            </article>
-            <span class="milestone-mark" aria-hidden="true"></span>
-          </li>
-        </ol>
+        <div class="rail-wrap reveal" style="--d:.08s" data-rail>
+          <div class="rail-bar">
+            <div class="rail-nav">
+              <button class="rail-arrow" type="button" data-rail-prev
+                      aria-label="Previous competitions" aria-controls="compRail">
+                <span aria-hidden="true">&#x2190;</span>
+              </button>
+              <button class="rail-arrow" type="button" data-rail-next
+                      aria-label="More competitions" aria-controls="compRail">
+                <span aria-hidden="true">&#x2192;</span>
+              </button>
+            </div>
+          </div>
+          <ol class="rail" id="compRail" tabindex="0"
+              aria-label="Competition results, in order">
+            <li class="milestone">
+              <article class="milestone-card">
+                <figure class="milestone-shot">
+                  <div class="slot"><b data-edit="music-awards.image">Image</b><i></i><small>Photograph</small></div>
+                </figure>
+                <div class="milestone-body">
+                  <p class="milestone-when ph" data-edit="music-awards.year">Year</p>
+                  <h3 class="ph" data-edit="music-awards.competition-name">Competition name</h3>
+                  <p class="ph" data-edit="music-awards.placement-category-and-organising-body">Placement, category and organising body.</p>
+                </div>
+              </article>
+              <span class="milestone-mark" aria-hidden="true"></span>
+            </li>
+            <li class="milestone">
+              <article class="milestone-card">
+                <figure class="milestone-shot">
+                  <div class="slot"><b data-edit="music-awards.image-2">Image</b><i></i><small>Photograph</small></div>
+                </figure>
+                <div class="milestone-body">
+                  <p class="milestone-when ph" data-edit="music-awards.year-2">Year</p>
+                  <h3 class="ph" data-edit="music-awards.competition-name-2">Competition name</h3>
+                  <p class="ph" data-edit="music-awards.placement-category-and-organising-body-2">Placement, category and organising body.</p>
+                </div>
+              </article>
+              <span class="milestone-mark" aria-hidden="true"></span>
+            </li>
+            <li class="milestone">
+              <article class="milestone-card">
+                <figure class="milestone-shot">
+                  <div class="slot"><b data-edit="music-awards.image-3">Image</b><i></i><small>Photograph</small></div>
+                </figure>
+                <div class="milestone-body">
+                  <p class="milestone-when ph" data-edit="music-awards.year-3">Year</p>
+                  <h3 class="ph" data-edit="music-awards.competition-name-3">Competition name</h3>
+                  <p class="ph" data-edit="music-awards.placement-category-and-organising-body-3">Placement, category and organising body.</p>
+                </div>
+              </article>
+              <span class="milestone-mark" aria-hidden="true"></span>
+            </li>
+            <li class="milestone">
+              <article class="milestone-card">
+                <figure class="milestone-shot">
+                  <div class="slot"><b data-edit="music-awards.image-4">Image</b><i></i><small>Photograph</small></div>
+                </figure>
+                <div class="milestone-body">
+                  <p class="milestone-when ph" data-edit="music-awards.year-4">Year</p>
+                  <h3 class="ph" data-edit="music-awards.competition-name-4">Competition name</h3>
+                  <p class="ph" data-edit="music-awards.placement-category-and-organising-body-4">Placement, category and organising body.</p>
+                </div>
+              </article>
+              <span class="milestone-mark" aria-hidden="true"></span>
+            </li>
+            <li class="milestone">
+              <article class="milestone-card">
+                <figure class="milestone-shot">
+                  <div class="slot"><b data-edit="music-awards.image-5">Image</b><i></i><small>Photograph</small></div>
+                </figure>
+                <div class="milestone-body">
+                  <p class="milestone-when ph" data-edit="music-awards.year-5">Year</p>
+                  <h3 class="ph" data-edit="music-awards.competition-name-5">Competition name</h3>
+                  <p class="ph" data-edit="music-awards.placement-category-and-organising-body-5">Placement, category and organising body.</p>
+                </div>
+              </article>
+              <span class="milestone-mark" aria-hidden="true"></span>
+            </li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── recognition ── -->
-  <section class="band band-ink" id="recognition">
+  <section class="band band-tight" id="recognition">
     <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">02</span><span class="head-rule"></span></div>
-        <h2>Recognition</h2>
-      </div>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="card-no">01</span>
-          <h3>Mayoral recognition</h3>
-          <ul class="head-list">
-            <li>Recognised by the Office of the Mayor for performances at Sewa
-              International events.</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.08s">
-          <span class="card-no">02</span>
-          <h3>HELP Foundation</h3>
-          <ul class="head-list">
-            <li>Monroe Chapter President; raised approximately $2,000 for the
-              foundation through music.</li>
-            <li>Led live recitals in cultural programming involving 200+ children
-              across New Jersey.</li>
-          </ul>
-        </article>
+      <div class="panel panel-tint reveal">
+        <div class="head">
+          <div class="head-row"><span class="head-no">02</span><span class="head-rule"></span></div>
+          <h2>Recognition</h2>
+        </div>
+        <div class="cards">
+          <article class="card reveal">
+            <span class="card-no">01</span>
+            <h3 data-edit="music-awards.mayoral-recognition">Mayoral recognition</h3>
+            <ul class="head-list">
+              <li data-edit="music-awards.recognised-by-the-office-of-the-mayor">Recognised by the Office of the Mayor for performances at Sewa
+                International events.</li>
+            </ul>
+          </article>
+          <article class="card reveal" style="--d:.08s">
+            <span class="card-no">02</span>
+            <h3 data-edit="music-awards.help-foundation">HELP Foundation</h3>
+            <ul class="head-list">
+              <li data-edit="music-awards.monroe-chapter-president-raised-approximately-2-">Monroe Chapter President; raised approximately $2,000 for the
+                foundation through music.</li>
+              <li data-edit="music-awards.led-live-recitals-in-cultural-programming-involv">Led live recitals in cultural programming involving 200+ children
+                across New Jersey.</li>
+            </ul>
+          </article>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ── performance record ── -->
-  <section class="band band-paper" id="record">
+  <section class="band band-tight" id="record">
     <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">03</span><span class="head-rule"></span></div>
-        <h2>Performance <em>record</em></h2>
-        <p>Indian Classical Vocal Music &mdash; 7 years of formal training.</p>
-      </div>
-      <ul class="stats reveal" style="--d:.06s">
-        <li class="stat"><b>7</b><span>Years of training</span></li>
-        <li class="stat"><b>4</b><span>Countries performed in</span></li>
-      </ul>
-      <div class="media">
-        <article class="card card-center reveal">
-          <span class="card-no">01</span>
-          <h3>Stages</h3>
-          <ul class="head-list">
-            <li>Solo and ensemble concert performances across the New York tri-state
-              area, London, Malaysia, and India.</li>
-            <li>Recitals in community and temple cultural programming throughout
-              New Jersey.</li>
-          </ul>
-        </article>
-        <figure class="frame frame-full reveal" style="--d:.09s">
-          <img src="images/singing.jpg" alt="Shreya seated cross-legged on stage in a blue and gold silk sari, singing into a microphone during a classical vocal recital." loading="lazy" width="1066" height="1599">
-        </figure>
-      </div>
+      <div class="panel reveal">
+        <div class="head">
+          <div class="head-row"><span class="head-no">03</span><span class="head-rule"></span></div>
+          <h2>Performance <em>record</em></h2>
+          <p data-edit="music-awards.indian-classical-vocal-music-7-years-of">Indian Classical Vocal Music &mdash; 7 years of formal training.</p>
+        </div>
+        <ul class="stats reveal" style="--d:.06s">
+          <li class="stat"><b>7</b><span data-edit="music-awards.years-of-training">Years of training</span></li>
+          <li class="stat"><b>4</b><span data-edit="music-awards.countries-performed-in">Countries performed in</span></li>
+        </ul>
+        <div class="media">
+          <article class="card card-center reveal">
+            <span class="card-no">01</span>
+            <h3 data-edit="music-awards.stages">Stages</h3>
+            <ul class="head-list">
+              <li data-edit="music-awards.solo-and-ensemble-concert-performances-across-th">Solo and ensemble concert performances across the New York tri-state
+                area, London, Malaysia, and India.</li>
+              <li data-edit="music-awards.recitals-in-community-and-temple-cultural-progra">Recitals in community and temple cultural programming throughout
+                New Jersey.</li>
+            </ul>
+          </article>
+          <figure class="frame frame-full reveal" style="--d:.09s">
+            <img src="images/singing.jpg" alt="Shreya seated cross-legged on stage in a blue and gold silk sari, singing into a microphone during a classical vocal recital." loading="lazy" width="1066" height="1599">
+          </figure>
+        </div>
 
-      <a class="btn reveal" style="--d:.14s" href="index.html#awards">
-        <span aria-hidden="true">&#x2190;</span> All awards
-      </a>
+      <nav class="pager" aria-label="Sections">
+        <a class="btn btn-ghost" href="performing-arts.html"><span aria-hidden="true">&#x2190;</span> Performing arts</a>
+        <a class="btn" href="awards.html">All awards <span aria-hidden="true">&#x2192;</span></a>
+      </nav>
+      </div>
     </div>
   </section>
 
@@ -212,18 +226,44 @@
 
 <footer class="foot">
   <div class="foot-in">
-    <a class="btn reveal" href="mailto:shreya.srinivasan2011@gmail.com">shreya.srinivasan2011@gmail.com</a>
     <div class="foot-row">
       <span>&copy; <span id="yr">2026</span> Shreya Srinivasan</span>
       <ul>
-        <li><a href="index.html#about">About Me</a></li>
-        <li><a href="index.html#art">Art</a></li>
-        <li><a href="index.html#events">Events</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="art.html">Art</a></li>
+        <li><a href="events.html">Events</a></li>
       </ul>
     </div>
+    <a class="foot-mail" href="mailto:shreya.srinivasan2011@gmail.com">
+      <span class="foot-mail-icon" aria-hidden="true">&#9993;</span>
+      shreya.srinivasan2011@gmail.com
+    </a>
   </div>
 </footer>
 
+
+<div class="lock" id="lock" role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+  <div class="lock-card">
+    <h2 id="lockTitle">Edit this page</h2>
+    <p>Enter the password to edit the text in place.</p>
+    <input id="lockPass" type="password" autocomplete="current-password" aria-label="Password">
+    <p class="lock-err" role="alert"></p>
+    <div class="lock-row">
+      <button class="btn lock-cancel" type="button">Cancel</button>
+      <button class="btn btn-solid lock-go" type="button">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<div class="edit-bar" role="region" aria-label="Editing">
+  <span class="edit-status"></span>
+  <button class="btn edit-export" type="button">Download</button>
+  <button class="btn edit-reset" type="button">Reset</button>
+  <button class="btn btn-solid edit-save" type="button">Save</button>
+</div>
+
+<script src="neurons.js"></script>
 <script src="main.js"></script>
+<script src="editor.js"></script>
 </body>
 </html>

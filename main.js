@@ -88,6 +88,46 @@
   links.forEach(a => a.addEventListener('click', close));
   addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
+  /* ── the nav marker ──────────────────────────────────────
+     One lit pill living behind the links. Hovering hands it to
+     that link, leaving the bar hands it back to the current
+     page, and because only one element ever moves, selection
+     glides instead of blinking between two backgrounds. */
+  const navList = document.getElementById('navLinks');
+  if (navList && links.length) {
+    const glide = document.createElement('span');
+    glide.className = 'nav-glide';
+    glide.setAttribute('aria-hidden', 'true');
+    navList.prepend(glide);
+
+    const current = navList.querySelector('a.current');
+    /* tells the stylesheet to drop the static fallback background now
+       that a marker is actually doing the job */
+    current?.classList.add('glided');
+
+    const moveTo = el => {
+      if (!el) { glide.style.setProperty('--o', '0'); return; }
+      const r = el.getBoundingClientRect();
+      const lr = navList.getBoundingClientRect();
+      glide.style.setProperty('--x', `${(r.left - lr.left).toFixed(1)}px`);
+      glide.style.setProperty('--y', `${(r.top - lr.top).toFixed(1)}px`);
+      glide.style.setProperty('--w', `${r.width.toFixed(1)}px`);
+      glide.style.setProperty('--h', `${r.height.toFixed(1)}px`);
+      glide.style.setProperty('--o', '1');
+    };
+    const settle = () => moveTo(current);
+
+    links.forEach(a => {
+      a.addEventListener('pointerenter', () => moveTo(a));
+      a.addEventListener('focus', () => moveTo(a));
+    });
+    navList.addEventListener('pointerleave', settle);
+    addEventListener('resize', settle);
+    /* the web fonts can land after first paint and change every width */
+    if (document.fonts?.ready) document.fonts.ready.then(settle);
+    settle();
+  }
+
   /* ── horizontal timeline rails ───────────────────────────
      The scroll container does the work; these buttons only nudge it
      by one column and then reflect where it ended up. */
@@ -248,26 +288,10 @@
     });
   }
 
-  /* dark bands warm toward the pointer */
+  /* a few degrees of tilt — enough to feel responsive, not enough
+     to read as a gimmick */
   if (fine && !reduced) {
-    document.querySelectorAll('.band-ink').forEach(band => {
-      let raf = 0;
-      band.addEventListener('pointermove', e => {
-        if (raf) return;
-        raf = requestAnimationFrame(() => {
-          const r = band.getBoundingClientRect();
-          band.style.setProperty('--mx', `${e.clientX - r.left}px`);
-          band.style.setProperty('--my', `${e.clientY - r.top}px`);
-          raf = 0;
-        });
-      }, { passive: true });
-      band.addEventListener('pointerenter', () => band.classList.add('lit'));
-      band.addEventListener('pointerleave', () => band.classList.remove('lit'));
-    });
-
-    /* a few degrees of tilt — enough to feel responsive, not enough
-       to read as a gimmick */
-    const MAX = 3.5;
+    const MAX = 5;
     document.querySelectorAll('.card, .event').forEach(el => {
       let raf = 0;
       el.addEventListener('pointermove', e => {
@@ -287,6 +311,43 @@
       });
     });
   }
+
+  /* buttons lean a little toward the pointer before you reach them */
+  if (fine && !reduced) {
+    document.querySelectorAll('.btn, .chip').forEach(el => {
+      let raf = 0;
+      el.addEventListener('pointermove', e => {
+        if (raf) return;
+        raf = requestAnimationFrame(() => {
+          const r = el.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width  / 2)) / r.width;
+          const dy = (e.clientY - (r.top  + r.height / 2)) / r.height;
+          el.style.translate = `${(dx * 6).toFixed(1)}px ${(dy * 5).toFixed(1)}px`;
+          raf = 0;
+        });
+      }, { passive: true });
+      el.addEventListener('pointerleave', () => { el.style.translate = ''; });
+    });
+  }
+
+  /* ── entrance-animation safety net ───────────────────────
+     The hero's entrance animations carry a delay and
+     fill-mode:both, so each element sits at opacity 0 until
+     its delay elapses. That hold is only ever lifted by the
+     animation timeline — and a timeline can stall (a busy
+     rAF loop on a slow device will do it), which leaves the
+     hero reading as blank with no way back. Well past the
+     point every one of them should have finished, cancel
+     anything still unfinished and let the base styles stand. */
+  const HERO = '.hero-kicker, .hero-lede, .hero-actions, .scroll-cue, .hero-name span > i';
+  setTimeout(() => {
+    document.querySelectorAll(HERO).forEach(el => {
+      if (!el.getAnimations) return;
+      el.getAnimations().forEach(a => {
+        if (a.playState !== 'finished') a.cancel();
+      });
+    });
+  }, 2600);
 
   /* ── footer year ─────────────────────────────────────── */
   const yr = document.getElementById('yr');

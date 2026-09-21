@@ -4,63 +4,185 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Art — Shreya Srinivasan</title>
+<meta name="description" content="A gallery of drawings and paintings shown at the Monroe Township Public Library, several of them prize-winning.">
+<meta name="theme-color" content="#0B172D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23A3A390'/></svg>">
-<noscript><style>.fly{opacity:1!important;transform:none!important}</style></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='34%25' cy='30%25'><stop offset='0' stop-color='%23ffffff'/><stop offset='.45' stop-color='%23F2D1C8'/><stop offset='1' stop-color='%2375889C'/></radialGradient></defs><circle cx='50' cy='50' r='42' fill='url(%23g)'/></svg>">
 </head>
-<body data-page="art" class="blush-page">
+<body>
 
-<header class="topbar">
-  <a class="brand" href="index.html">
-    <span class="brand-dot"></span>
-    <span class="brand-name">shreya. s</span>
-  </a>
-  <nav class="links">
-    <a class="fly-link" style="--i:1" href="sanskrit.html">Sanskrit</a>
-    <a class="fly-link" style="--i:2" href="music.html">Music</a>
-    <a class="fly-link" style="--i:3" href="art.html">Art</a>
-    <a class="fly-link" style="--i:4" href="academics.html">Academics</a>
+<div class="sky" aria-hidden="true"></div>
+<canvas class="neurons" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="shooting" aria-hidden="true">
+  <i style="--t:12%;--l:78%;--delay:1s;--dur:9s;--dist:1150px;--tail:230px"></i>
+  <i style="--t:4%;--l:96%;--delay:5.5s;--dur:11s;--dist:1400px;--tail:280px"></i>
+  <i style="--t:34%;--l:88%;--delay:9s;--dur:13s;--dist:980px;--tail:180px"></i>
+  <i style="--t:-2%;--l:52%;--delay:15s;--dur:17s;--dist:1250px;--tail:250px"></i>
+</div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="index.html"><i></i>shreya. s</a>
+  <nav aria-label="Sections">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="sanskrit.html">Sanskrit</a></li>
+      <li><a href="performing-arts.html">Performing arts</a></li>
+      <li><a class="current" aria-current="page" href="art.html">Art</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="events.html">Events</a></li>
+    </ul>
   </nav>
+  <button class="key" id="key" type="button" data-on="0" aria-label="Edit this page">&#x270E;</button>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<main class="art">
-  <div class="a-canvas">
+<main id="top">
 
-    <h1 class="a-title fly-name" style="--i:1">Art</h1>
+  <section class="hero hero-sub">
+    <p class="hero-kicker" data-edit="art.05-portfolio">05 &mdash; Portfolio</p>
+    <h1 class="hero-name">
+      <span><i>Art</i></span>
+    </h1>
+    <p class="hero-lede" data-edit="art.drawings-and-paintings-displayed-at-the-monroe">A gallery of drawings and paintings displayed at the Monroe Township
+      Public Library, several of them prize-winning.</p>
+  </section>
 
-    <!-- painted brush shape -->
-    <svg class="a-blob" viewBox="0 0 1000 800" preserveAspectRatio="none" aria-hidden="true">
-      <path class="blob-shadow" d="M998.5 400.0C995.3 429.5,980.2 458.1,970.1 486.8C960.0 515.5,957.0 547.3,937.7 572.1C918.5 596.8,883.8 616.6,854.4 635.1C825.0 653.7,792.6 668.1,761.1 683.3C729.7 698.6,700.2 719.8,665.5 726.8C630.8 733.8,588.8 727.9,552.8 725.5C516.7 723.1,484.1 715.5,449.3 712.7C414.5 709.8,384.6 707.1,343.8 708.4C303.1 709.7,246.8 726.5,204.8 720.3C162.8 714.0,114.3 696.0,91.8 670.8C69.3 645.7,73.8 600.9,69.8 569.1C65.7 537.3,71.2 508.0,67.4 479.9C63.6 451.7,47.9 426.8,46.8 400.0C45.6 373.2,51.1 344.9,60.4 318.8C69.6 292.8,86.9 268.6,102.2 243.6C117.5 218.7,130.6 191.6,152.2 169.2C173.9 146.9,202.3 126.5,232.1 109.3C261.9 92.1,296.0 77.5,330.9 66.1C365.8 54.6,403.2 49.2,441.7 40.7C480.3 32.2,523.5 12.8,562.4 14.9C601.4 17.0,645.5 33.0,675.6 53.2C705.7 73.4,722.2 111.7,743.0 136.3C763.8 160.9,774.5 182.8,800.4 200.7C826.4 218.5,867.3 225.1,898.7 243.3C930.1 261.5,972.3 283.6,988.9 309.7C1005.5 335.9,1001.6 370.5,998.5 400.0Z"/>
-      <path class="blob-fill"   d="M998.5 400.0C995.3 429.5,980.2 458.1,970.1 486.8C960.0 515.5,957.0 547.3,937.7 572.1C918.5 596.8,883.8 616.6,854.4 635.1C825.0 653.7,792.6 668.1,761.1 683.3C729.7 698.6,700.2 719.8,665.5 726.8C630.8 733.8,588.8 727.9,552.8 725.5C516.7 723.1,484.1 715.5,449.3 712.7C414.5 709.8,384.6 707.1,343.8 708.4C303.1 709.7,246.8 726.5,204.8 720.3C162.8 714.0,114.3 696.0,91.8 670.8C69.3 645.7,73.8 600.9,69.8 569.1C65.7 537.3,71.2 508.0,67.4 479.9C63.6 451.7,47.9 426.8,46.8 400.0C45.6 373.2,51.1 344.9,60.4 318.8C69.6 292.8,86.9 268.6,102.2 243.6C117.5 218.7,130.6 191.6,152.2 169.2C173.9 146.9,202.3 126.5,232.1 109.3C261.9 92.1,296.0 77.5,330.9 66.1C365.8 54.6,403.2 49.2,441.7 40.7C480.3 32.2,523.5 12.8,562.4 14.9C601.4 17.0,645.5 33.0,675.6 53.2C705.7 73.4,722.2 111.7,743.0 136.3C763.8 160.9,774.5 182.8,800.4 200.7C826.4 218.5,867.3 225.1,898.7 243.3C930.1 261.5,972.3 283.6,988.9 309.7C1005.5 335.9,1001.6 370.5,998.5 400.0Z"/>
-    </svg>
+  <section class="band" id="art">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div class="head">
+          <div class="head-row"><span class="head-no">05</span><span class="head-rule"></span></div>
+        </div>
 
-    <!-- copy sitting on the paint -->
-    <section class="a-text">
-      <div class="a-body">
-        <p class="pnl-eyebrow">Art</p>
-        <p class="a-ph ph">A line about your work</p>
-        <span class="a-rule"></span>
+        <!-- ═══ the carousel, carried over unchanged ═══ -->
+        <div class="stage reveal" style="--d:.08s">
+          <button class="see-all" id="seeAll" type="button" aria-expanded="false">See all</button>
+
+          <!-- every artwork at once -->
+          <div class="grid-view" id="gridView" hidden></div>
+
+          <div class="showcase">
+            <div class="track">
+              <figure class="slide">
+                <img src="images/work-1.jpg" alt="Painting of an orange octopus with curling tentacles against a black and deep blue background." loading="lazy" width="1600" height="1323">
+                <figcaption class="slide-label ph">Work 1</figcaption>
+              </figure>
+              <figure class="slide">
+                <div class="slide-pair">
+                  <img src="images/work-2.jpg" alt="Ink drawing of an anatomical heart, hand-lettered with the word HEART." loading="lazy">
+                  <img src="images/work-3.jpg" alt="Ink drawing of a balloon dog, hand-lettered with the word BALLOON." loading="lazy">
+                </div>
+                <figcaption class="slide-label ph">Work 2</figcaption>
+              </figure>
+              <figure class="slide">
+                <div class="slide-pair">
+                  <img src="images/work-4a.jpg" alt="Ink drawing of a frog, hand-lettered with the word FROG." loading="lazy">
+                  <img src="images/work-4b.jpg" alt="Ink drawing of a stack of dice, hand-lettered with the word DICE." loading="lazy">
+                </div>
+                <figcaption class="slide-label ph">Work 3</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d1.jpg" alt="Coloured-pencil study of a silver and red gift bow." loading="lazy">
+                <figcaption class="slide-label ph">Work 4</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d2.jpg" alt="Coloured-pencil drawing of a red satin bow in a sketchbook, pencils alongside." loading="lazy">
+                <figcaption class="slide-label ph">Work 5</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d3.jpg" alt="Coloured-pencil drawing of a purple scrunchie in a sketchbook, pencils alongside." loading="lazy">
+                <figcaption class="slide-label ph">Work 6</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d4.jpg" alt="Coloured-pencil drawing of a red and white mushroom in a sketchbook." loading="lazy">
+                <figcaption class="slide-label ph">Work 7</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d5.jpg" alt="Graphite drawing of a balloon dog, pens and eraser alongside." loading="lazy">
+                <figcaption class="slide-label ph">Work 8</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d6.jpg" alt="Charcoal sketchbook page of a dancer, musical notes and a cat, lettered MUSIC." loading="lazy">
+                <figcaption class="slide-label ph">Work 9</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d7.jpg" alt="Graphite study of a violin, close on the f-holes." loading="lazy">
+                <figcaption class="slide-label ph">Work 10</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d8.jpg" alt="Part-coloured drawing of a hibiscus flower with a paintbrush sweeping colour across it." loading="lazy">
+                <figcaption class="slide-label ph">Work 11</figcaption>
+              </figure>
+              <figure class="slide">
+                <img src="images/d9.jpg" alt="Graphite study of a glass perfume bottle on dark paper." loading="lazy">
+                <figcaption class="slide-label ph">Work 12</figcaption>
+              </figure>
+            </div>
+            <button class="arrow arrow-prev" type="button" aria-label="Previous artwork">&lsaquo;</button>
+            <button class="arrow arrow-next" type="button" aria-label="Next artwork">&rsaquo;</button>
+          </div>
+        </div>
+        <div class="dots" role="tablist" aria-label="Choose artwork"></div>
+        <!-- ═══ end carousel ═══ -->
+
+      <nav class="pager" aria-label="Sections">
+        <a class="btn btn-ghost" href="performing-arts.html"><span aria-hidden="true">&#x2190;</span> Performing arts</a>
+        <a class="btn" href="awards.html">Awards <span aria-hidden="true">&#x2192;</span></a>
+      </nav>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- brush dabs -->
-    <span class="dab dab-1"></span>
-    <span class="dab dab-2"></span>
-    <span class="dab dab-3"></span>
-    <span class="dab dab-4"></span>
-
-    <!-- cream blossoms -->
-    <span class="bloom bloom-cream" style="--x:43%;  --y:5.5%; --s:.9;  --r:14deg"></span>
-    <span class="bloom bloom-cream" style="--x:88.5%;--y:8.5%; --s:1;   --r:-18deg"></span>
-    <span class="bloom bloom-cream" style="--x:4%;   --y:39%;  --s:.8;  --r:26deg"></span>
-    <span class="bloom bloom-cream" style="--x:24%;  --y:80.5%;--s:.85; --r:-10deg"></span>
-
-  </div>
 </main>
 
-<script src="script.js"></script>
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-row">
+      <span>&copy; <span id="yr">2026</span> Shreya Srinivasan</span>
+      <ul>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="art.html">Art</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+    </div>
+    <a class="foot-mail" href="mailto:shreya.srinivasan2011@gmail.com">
+      <span class="foot-mail-icon" aria-hidden="true">&#9993;</span>
+      shreya.srinivasan2011@gmail.com
+    </a>
+  </div>
+</footer>
+
+
+<div class="lock" id="lock" role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+  <div class="lock-card">
+    <h2 id="lockTitle">Edit this page</h2>
+    <p>Enter the password to edit the text in place.</p>
+    <input id="lockPass" type="password" autocomplete="current-password" aria-label="Password">
+    <p class="lock-err" role="alert"></p>
+    <div class="lock-row">
+      <button class="btn lock-cancel" type="button">Cancel</button>
+      <button class="btn btn-solid lock-go" type="button">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<div class="edit-bar" role="region" aria-label="Editing">
+  <span class="edit-status"></span>
+  <button class="btn edit-export" type="button">Download</button>
+  <button class="btn edit-reset" type="button">Reset</button>
+  <button class="btn btn-solid edit-save" type="button">Save</button>
+</div>
+
+<script src="neurons.js"></script>
+<script src="main.js"></script>
+<script src="editor.js"></script>
 </body>
 </html>

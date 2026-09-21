@@ -4,38 +4,119 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Events — Shreya Srinivasan</title>
+<meta name="description" content="Upcoming performances and fundraisers, and the Samskriti school founded in New Jersey.">
+<meta name="theme-color" content="#0B172D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23A3A390'/></svg>">
-<noscript><style>.fly{opacity:1!important;transform:none!important}</style></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="main.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='34%25' cy='30%25'><stop offset='0' stop-color='%23ffffff'/><stop offset='.45' stop-color='%23F2D1C8'/><stop offset='1' stop-color='%2375889C'/></radialGradient></defs><circle cx='50' cy='50' r='42' fill='url(%23g)'/></svg>">
 </head>
-<body data-page="events">
+<body>
 
-<header class="topbar">
-  <a class="brand" href="index.html">
-    <span class="brand-dot"></span>
-    <span class="brand-name">shreya. s</span>
-  </a>
-  <nav class="links">
-    <a class="fly-link" style="--i:1" href="sanskrit.html">Sanskrit</a>
-    <a class="fly-link" style="--i:2" href="music.html">Music</a>
-    <a class="fly-link" style="--i:3" href="art.html">Art</a>
-    <a class="fly-link" style="--i:4" href="academics.html">Academics</a>
+<div class="sky" aria-hidden="true"></div>
+<canvas class="neurons" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="shooting" aria-hidden="true">
+  <i style="--t:12%;--l:78%;--delay:1s;--dur:9s;--dist:1150px;--tail:230px"></i>
+  <i style="--t:4%;--l:96%;--delay:5.5s;--dur:11s;--dist:1400px;--tail:280px"></i>
+  <i style="--t:34%;--l:88%;--delay:9s;--dur:13s;--dist:980px;--tail:180px"></i>
+  <i style="--t:-2%;--l:52%;--delay:15s;--dur:17s;--dist:1250px;--tail:250px"></i>
+</div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="index.html"><i></i>shreya. s</a>
+  <nav aria-label="Sections">
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="sanskrit.html">Sanskrit</a></li>
+      <li><a href="performing-arts.html">Performing arts</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a class="current" aria-current="page" href="events.html">Events</a></li>
+    </ul>
   </nav>
+  <button class="key" id="key" type="button" data-on="0" aria-label="Edit this page">&#x270E;</button>
+  <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+    <span></span><span></span><span></span>
+  </button>
 </header>
 
-<main class="page">
-  <div class="page-head">
-    <h1 class="page-title fly-name" style="--i:1">Events</h1>
-  </div>
+<main id="top">
 
-  <div class="content">
+  <section class="hero hero-sub">
+    <p class="hero-kicker" data-edit="events.07-portfolio">07 &mdash; Portfolio</p>
+    <h1 class="hero-name">
+      <span><i>Events</i></span>
+    </h1>
+    <p class="hero-lede" data-edit="events.performances-and-fundraisers-and-the-samskriti-s">The Samskriti school founded to teach &#x15B;loka recitation, Sanskrit
+      and Indian cultural education across New Jersey.</p>
+  </section>
 
-  </div>
+  <section class="band" id="events">
+    <div class="wrap">
+      <div class="panel reveal">
+        <div class="head">
+          <div class="head-row"><span class="head-no">07</span><span class="head-rule"></span></div>
+          <p><span class="lede-label" data-edit="events.institutions-founded">Institutions founded</span>
+            <strong data-edit="events.sai-kalpataru-vidyalaya-new-jersey">Sai Kalpataru Vidyalaya, New Jersey</strong> &mdash; a charitable
+            Samskriti school imparting &#x15B;loka recitation, Sanskrit, and Indian
+            cultural and spiritual education to children and adults in the New Jersey
+            community.</p>
+        </div>
+
+      <nav class="pager" aria-label="Sections">
+        <a class="btn btn-ghost" href="awards.html"><span aria-hidden="true">&#x2190;</span> Awards</a>
+        <a class="btn" href="index.html">Home <span aria-hidden="true">&#x2192;</span></a>
+      </nav>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<script src="script.js"></script>
+<footer class="foot">
+  <div class="foot-in">
+    <div class="foot-row">
+      <span>&copy; <span id="yr">2026</span> Shreya Srinivasan</span>
+      <ul>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="art.html">Art</a></li>
+        <li><a href="events.html">Events</a></li>
+      </ul>
+    </div>
+    <a class="foot-mail" href="mailto:shreya.srinivasan2011@gmail.com">
+      <span class="foot-mail-icon" aria-hidden="true">&#9993;</span>
+      shreya.srinivasan2011@gmail.com
+    </a>
+  </div>
+</footer>
+
+
+<div class="lock" id="lock" role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+  <div class="lock-card">
+    <h2 id="lockTitle">Edit this page</h2>
+    <p>Enter the password to edit the text in place.</p>
+    <input id="lockPass" type="password" autocomplete="current-password" aria-label="Password">
+    <p class="lock-err" role="alert"></p>
+    <div class="lock-row">
+      <button class="btn lock-cancel" type="button">Cancel</button>
+      <button class="btn btn-solid lock-go" type="button">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<div class="edit-bar" role="region" aria-label="Editing">
+  <span class="edit-status"></span>
+  <button class="btn edit-export" type="button">Download</button>
+  <button class="btn edit-reset" type="button">Reset</button>
+  <button class="btn btn-solid edit-save" type="button">Save</button>
+</div>
+
+<script src="neurons.js"></script>
+<script src="main.js"></script>
+<script src="editor.js"></script>
 </body>
 </html>

@@ -5,29 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shreya Srinivasan</title>
 <meta name="description" content="Portfolio of Shreya Srinivasan — academics, Sanskrit, performing arts, art, awards and events.">
+<meta name="theme-color" content="#0B172D">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="main.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='42' fill='%23878568'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><radialGradient id='g' cx='34%25' cy='30%25'><stop offset='0' stop-color='%23ffffff'/><stop offset='.45' stop-color='%23F2D1C8'/><stop offset='1' stop-color='%2375889C'/></radialGradient></defs><circle cx='50' cy='50' r='42' fill='url(%23g)'/></svg>">
 </head>
 <body>
 
+<div class="sky" aria-hidden="true"></div>
+<canvas class="neurons" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="shooting" aria-hidden="true">
+  <i style="--t:12%;--l:78%;--delay:1s;--dur:9s;--dist:1150px;--tail:230px"></i>
+  <i style="--t:4%;--l:96%;--delay:5.5s;--dur:11s;--dist:1400px;--tail:280px"></i>
+  <i style="--t:34%;--l:88%;--delay:9s;--dur:13s;--dist:980px;--tail:180px"></i>
+  <i style="--t:-2%;--l:52%;--delay:15s;--dur:17s;--dist:1250px;--tail:250px"></i>
+</div>
 <div class="progress" aria-hidden="true"></div>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top"><i></i>shreya. s</a>
+  <a class="brand" href="index.html"><i></i>shreya. s</a>
   <nav aria-label="Sections">
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#academics">Academics</a></li>
-      <li><a href="#sanskrit">Sanskrit</a></li>
-      <li><a href="#performing-arts">Performing arts</a></li>
-      <li><a href="#art">Art</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#events">Events</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="academics.html">Academics</a></li>
+      <li><a href="sanskrit.html">Sanskrit</a></li>
+      <li><a href="performing-arts.html">Performing arts</a></li>
+      <li><a href="art.html">Art</a></li>
+      <li><a href="awards.html">Awards</a></li>
+      <li><a href="events.html">Events</a></li>
     </ul>
   </nav>
+  <button class="key" id="key" type="button" data-on="0" aria-label="Edit this page">&#x270E;</button>
   <button class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
     <span></span><span></span><span></span>
   </button>
@@ -36,345 +47,76 @@
 <main id="top">
 
   <!-- ── hero ── -->
-  <section class="hero">
-    <p class="hero-kicker">Portfolio</p>
-    <h1 class="hero-name">
-      <span><i>Shreya</i></span>
-      <span><i>Srinivasan</i></span>
-    </h1>
-    <p class="hero-lede ph">A short introduction — a sentence or two on who you are,
-      what you study, and the thread that runs through your work.</p>
-    <div class="hero-actions">
-      <a class="btn" href="#about">Explore the work</a>
-      <a class="btn btn-ghost" href="#events">Upcoming events</a>
+  <section class="hero hero-split">
+    <div class="hero-copy">
+      <p class="hero-kicker" data-edit="index.portfolio">Portfolio</p>
+      <h1 class="hero-name">
+        <span><i>Shreya</i></span>
+        <span><i>Srinivasan</i></span>
+      </h1>
+      <p class="hero-lede ph" data-edit="index.a-short-introduction-a-sentence-or-two">A short introduction — a sentence or two on who you are,
+        what you study, and the thread that runs through your work.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="about.html">Explore the work</a>
+        <a class="btn btn-ghost" href="events.html">Upcoming events</a>
+      </div>
     </div>
-    <span class="scroll-cue" aria-hidden="true"><i></i>Scroll</span>
-  </section>
-
-  <!-- ── about me ── -->
-  <section class="band band-paper" id="about">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">01</span><span class="head-rule"></span></div>
-        <h2>About <em>me</em></h2>
-      </div>
-      <div class="about">
-        <figure class="portrait reveal">
-          <div class="slot"><b>Portrait</b><i></i><small>Drop a photograph here</small></div>
-        </figure>
-        <div class="about-copy reveal" style="--d:.1s">
-          <p>High school student with a consistent record of academic honors and a
-            growing technical focus in artificial intelligence and computational
-            linguistics. Selected in the top 100 by America's Startup Investor Council
-            for equity investment. Certified in prompt engineering through Vanderbilt
-            University's professional certificate program, and currently in the second
-            year of a three-year college-rigor Sanskrit program (SAFL). Combines
-            hands-on web development experience with five years of formal Indian
-            classical vocal training and an international performance record.</p>
-
-          <p class="fact">
-            <b>Career interest</b>
-            Linguistic AI and AI sciences &mdash; specifically the intersection of
-            natural language, computational modeling, and how humans and machines
-            learn language.
-          </p>
-        </div>
-      </div>
+    <div class="hero-collage">
+      <figure class="collage-a">
+        <img src="images/portrait.jpg" alt="Shreya standing in a theatre auditorium in a cream blazer, with a TechXchange stage screen lit purple behind her." width="618" height="1100">
+      </figure>
+      <figure class="collage-c">
+        <img src="images/portrait-3.jpg" alt="Shreya resting her chin on her hand in a white sweatshirt, close up, with coloured lights blurred behind her." width="600" height="800" loading="lazy">
+      </figure>
+      <figure class="collage-b">
+        <img src="images/portrait-2.jpg" alt="Shreya smiling in a cream kalamkari-print kurta, in a hall with glass doors onto a garden behind her." width="601" height="900" loading="lazy">
+      </figure>
     </div>
   </section>
 
-  <!-- ── academics ── -->
-  <section class="band band-ink" id="academics">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">02</span><span class="head-rule"></span></div>
-        <h2>Academics</h2>
-        <p>Class of 2029, a sophomore at Monroe Township High School, NJ; Honor Roll
-          and Principal's List recipient throughout academic career.</p>
-      </div>
-      <p class="fact reveal" style="--d:.08s">
-        <b>Distinctions</b>
-        Won first place in Technology Student Association for Biotechnology.
-      </p>
-      <ol class="timeline reveal" style="--d:.16s">
-        <li class="entry">
-          <p class="entry-when">Class of 2029</p>
-          <h3 class="ph">School or programme name</h3>
-          <p class="ph">One or two lines on what this covered and what set it apart.</p>
-        </li>
-        <li class="entry">
-          <p class="entry-when">Class of 2029</p>
-          <h3>Monroe Township High School, New Jersey, USA</h3>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ── sanskrit ── -->
-  <section class="band band-paper" id="sanskrit">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">03</span><span class="head-rule"></span></div>
-        <h2>Sanskrit</h2>
-      </div>
-      <ul class="stats reveal" style="--d:.06s">
-        <li class="stat"><b>8</b><span>Years of Sanskrit</span></li>
-      </ul>
-      <div class="cards">
-        <article class="card reveal"><span class="card-no">01</span>
-          <h3>Sanskrit as a Foreign Language (SAFL), Samskrita Bharati &ndash; Third Year</h3>
-          <p>AP college-level curriculum and rigor in classical Sanskrit grammar,
-            composition, and recitation.</p></article>
-        <article class="card reveal" style="--d:.09s">
-          <span class="card-no">02</span>
-          <h3>Leadership and Community Service</h3>
-
-          <h4>Sanskrit instruction and student support</h4>
-          <p class="sub-note">100+ documented volunteer hours.</p>
-          <ul class="head-list">
-            <li>Teaching Assistant at AUM School, New Jersey.</li>
-            <li>Taught Sanskrit to children, and contributed to fundraising efforts of
-              over $10,000 for charitable causes.</li>
-            <li>Coached students who went on to win international Sanskrit sloka
-              competitions in 2025.</li>
-            <li>Provided one-on-one tutoring for students needing additional language
-              support.</li>
-            <li>Produced recorded training audio so students could review and practise
-              independently between classes.</li>
-          </ul>
-
-          <h4>Temple volunteer &mdash; ongoing</h4>
-          <ul class="head-list">
-            <li>Sloka Teaching Assistant for over 100 children in the community.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── performing arts ── -->
-  <section class="band band-ink" id="performing-arts">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">04</span><span class="head-rule"></span></div>
-        <h2>Performing arts</h2>
-        <p>Indian Classical Vocal Music &mdash; 7 years of formal training.</p>
-      </div>
-      <div class="media">
-        <article class="card card-center reveal">
-          <span class="card-no">01</span>
-          <h3>Performance &amp; leadership</h3>
-          <ul class="head-list">
-            <li>Solo and ensemble concert performances across the New York tri-state
-              area, London, Malaysia, and India.</li>
-            <li>Led live recitals in cultural programming involving 200+ children
-              across New Jersey.</li>
-            <li>Monroe Chapter President for HELP Foundation; raising funds through
-              music, approximately $2,000.</li>
-          </ul>
-          <a class="btn btn-card" href="music-awards.html">
-            Awards <span aria-hidden="true">&#x2192;</span>
-          </a>
-        </article>
-        <figure class="frame frame-full reveal" style="--d:.09s">
-          <img src="images/singing.jpg" alt="Shreya seated cross-legged on stage in a blue and gold silk sari, singing into a microphone during a classical vocal recital." loading="lazy" width="1066" height="1599">
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── art ── -->
-  <section class="band band-paper" id="art">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">05</span><span class="head-rule"></span></div>
-        <h2>Art</h2>
-        <p>Gallery of my art pieces that have been displayed at the Monroe Township
-          Public Library, and won prizes.</p>
-      </div>
-      <div class="stage reveal" style="--d:.08s">
-        <button class="see-all" id="seeAll" type="button" aria-expanded="false">See all</button>
-
-        <!-- every artwork at once -->
-        <div class="grid-view" id="gridView" hidden></div>
-
-        <div class="showcase">
-          <div class="track">
-            <figure class="slide">
-              <img src="images/work-1.jpg" alt="Painting of an orange octopus with curling tentacles against a black and deep blue background." loading="lazy" width="1600" height="1323">
-              <figcaption class="slide-label ph">Work 1</figcaption>
-            </figure>
-            <figure class="slide">
-              <div class="slide-pair">
-                <img src="images/work-2.jpg" alt="Ink drawing of an anatomical heart, hand-lettered with the word HEART." loading="lazy">
-                <img src="images/work-3.jpg" alt="Ink drawing of a balloon dog, hand-lettered with the word BALLOON." loading="lazy">
-              </div>
-              <figcaption class="slide-label ph">Work 2</figcaption>
-            </figure>
-            <figure class="slide">
-              <div class="slide-pair">
-                <img src="images/work-4a.jpg" alt="Ink drawing of a frog, hand-lettered with the word FROG." loading="lazy">
-                <img src="images/work-4b.jpg" alt="Ink drawing of a stack of dice, hand-lettered with the word DICE." loading="lazy">
-              </div>
-              <figcaption class="slide-label ph">Work 3</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d1.jpg" alt="Coloured-pencil study of a silver and red gift bow." loading="lazy">
-              <figcaption class="slide-label ph">Work 4</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d2.jpg" alt="Coloured-pencil drawing of a red satin bow in a sketchbook, pencils alongside." loading="lazy">
-              <figcaption class="slide-label ph">Work 5</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d3.jpg" alt="Coloured-pencil drawing of a purple scrunchie in a sketchbook, pencils alongside." loading="lazy">
-              <figcaption class="slide-label ph">Work 6</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d4.jpg" alt="Coloured-pencil drawing of a red and white mushroom in a sketchbook." loading="lazy">
-              <figcaption class="slide-label ph">Work 7</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d5.jpg" alt="Graphite drawing of a balloon dog, pens and eraser alongside." loading="lazy">
-              <figcaption class="slide-label ph">Work 8</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d6.jpg" alt="Charcoal sketchbook page of a dancer, musical notes and a cat, lettered MUSIC." loading="lazy">
-              <figcaption class="slide-label ph">Work 9</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d7.jpg" alt="Graphite study of a violin, close on the f-holes." loading="lazy">
-              <figcaption class="slide-label ph">Work 10</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d8.jpg" alt="Part-coloured drawing of a hibiscus flower with a paintbrush sweeping colour across it." loading="lazy">
-              <figcaption class="slide-label ph">Work 11</figcaption>
-            </figure>
-            <figure class="slide">
-              <img src="images/d9.jpg" alt="Graphite study of a glass perfume bottle on dark paper." loading="lazy">
-              <figcaption class="slide-label ph">Work 12</figcaption>
-            </figure>
-          </div>
-          <button class="arrow arrow-prev" type="button" aria-label="Previous artwork">&lsaquo;</button>
-          <button class="arrow arrow-next" type="button" aria-label="Next artwork">&rsaquo;</button>
-        </div>
-      </div>
-      <div class="dots" role="tablist" aria-label="Choose artwork"></div>
-    </div>
-  </section>
-
-  <!-- ── awards ── -->
-  <section class="band band-ink" id="awards">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">06</span><span class="head-rule"></span></div>
-        <h2>Awards</h2>
-        <p>Recognitions across competition, performance and sport.</p>
-      </div>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="card-no">01</span>
-          <h3>Technology Student Association (TSA)</h3>
-          <ul class="head-list">
-            <li>1st Place, New Jersey State Competition &mdash; 2026.</li>
-            <li>School representative, TSA National Conference, Washington, D.C. &mdash; 2026.</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.06s">
-          <span class="card-no">02</span>
-          <h3>America 250 Startup Competition</h3>
-          <ul class="head-list">
-            <li>Selected as a top 100 proposal by America's Startup Investor Council for
-              equity investment consideration.</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.12s">
-          <span class="card-no">03</span>
-          <h3>Music</h3>
-          <ul class="head-list">
-            <li>Winner and placing finalist in multiple national and international Indian
-              classical vocal competitions.</li>
-            <li>Mayoral recognition for performances at Sewa International events.</li>
-          </ul>
-          <a class="btn btn-card" href="music-awards.html">
-            Details <span aria-hidden="true">&#x2192;</span>
-          </a>
-        </article>
-        <article class="card reveal" style="--d:.18s">
-          <span class="card-no">04</span>
-          <h3>Visual arts</h3>
-          <ul class="head-list">
-            <li>Award winner in juried art competitions by the Monroe Township Arts
-              Commission.</li>
-            <li>Recognition from the Office of the Mayor and the Monroe Township Human
-              Relations Commission.</li>
-            <li>First place in the America 250 Art Commission&rsquo;s contest.</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.24s">
-          <span class="card-no">05</span>
-          <h3>Photography</h3>
-          <ul class="head-list">
-            <li>Second place, Monroe Township Public Library Photography Contest.</li>
-          </ul>
-        </article>
-        <article class="card reveal" style="--d:.30s">
-          <span class="card-no">06</span>
-          <h3>Swimming</h3>
-          <ul class="head-list">
-            <li>Competitive swimmer, training and competing year-round with a Princeton,
-              NJ club league.</li>
-          </ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── events ── -->
-  <section class="band band-paper" id="events">
-    <div class="wrap">
-      <div class="head reveal">
-        <div class="head-row"><span class="head-no">07</span><span class="head-rule"></span></div>
-        <h2>Events</h2>
-        <p><span class="lede-label">Institutions founded</span>
-          <strong>Sai Kalpataru Vidyalaya, New Jersey</strong> &mdash; a charitable
-          Samskriti school imparting &#x15B;loka recitation, Sanskrit, and Indian
-          cultural and spiritual education to children and adults in the New Jersey
-          community.</p>
-      </div>
-      <div class="events">
-        <article class="event reveal">
-          <span class="event-date">Upcoming &mdash; August 29</span>
-          <h3>HELP Organization Fundraiser Concert</h3>
-          <p>At Om Sri Sai Balaji Temple and Cultural Center, 285 Rhode Hall Rd,
-            Monroe Township, NJ 08831.</p></article>
-      </div>
-
-      <a class="btn btn-donate reveal" style="--d:.08s"
-         href="https://www.gofundme.com/f/music-for-a-cause-help-foundations-children?cp_src=d"
-         target="_blank" rel="noopener noreferrer">
-        Click to donate <span aria-hidden="true">&#x2197;</span>
-        <span class="sr-only">(opens in a new tab)</span>
-      </a>
-    </div>
-  </section>
 
 </main>
 
 <footer class="foot">
   <div class="foot-in">
-    <a class="btn reveal" href="mailto:shreya.srinivasan2011@gmail.com">shreya.srinivasan2011@gmail.com</a>
     <div class="foot-row">
       <span>&copy; <span id="yr">2026</span> Shreya Srinivasan</span>
       <ul>
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#art">Art</a></li>
-        <li><a href="#events">Events</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="art.html">Art</a></li>
+        <li><a href="events.html">Events</a></li>
       </ul>
     </div>
+    <a class="foot-mail" href="mailto:shreya.srinivasan2011@gmail.com">
+      <span class="foot-mail-icon" aria-hidden="true">&#9993;</span>
+      shreya.srinivasan2011@gmail.com
+    </a>
   </div>
 </footer>
 
+
+<div class="lock" id="lock" role="dialog" aria-modal="true" aria-labelledby="lockTitle">
+  <div class="lock-card">
+    <h2 id="lockTitle">Edit this page</h2>
+    <p>Enter the password to edit the text in place.</p>
+    <input id="lockPass" type="password" autocomplete="current-password" aria-label="Password">
+    <p class="lock-err" role="alert"></p>
+    <div class="lock-row">
+      <button class="btn lock-cancel" type="button">Cancel</button>
+      <button class="btn btn-solid lock-go" type="button">Unlock</button>
+    </div>
+  </div>
+</div>
+
+<div class="edit-bar" role="region" aria-label="Editing">
+  <span class="edit-status"></span>
+  <button class="btn edit-export" type="button">Download</button>
+  <button class="btn edit-reset" type="button">Reset</button>
+  <button class="btn btn-solid edit-save" type="button">Save</button>
+</div>
+
+<script src="neurons.js"></script>
 <script src="main.js"></script>
+<script src="editor.js"></script>
 </body>
 </html>
